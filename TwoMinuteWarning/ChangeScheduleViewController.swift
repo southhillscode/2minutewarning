@@ -8,28 +8,80 @@
 
 import UIKit
 
-class ChangeSceduleViewController: UIViewController {
+class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    @IBOutlet var classNotificationSwitch: UIButton!
-    @IBOutlet var breakNotificationSwitch: UIButton!
-    @IBOutlet var dressNotificationSwitch: UIButton!
-    @IBOutlet var schedule: UIPickerView!
+    var classNotificationSwitch: UISwitch!
+    var breakNotificationSwitch: UISwitch!
+    var dressNotificationSwitch: UISwitch!
+    var classNotificationLabel:  UILabel!
+    var breakNotificationLabel:  UILabel!
+    var dressNotificationLabel:  UILabel!
     
+    @IBOutlet weak var schedulePicker: UIPickerView!
+    @IBOutlet weak var currentSchedule: UILabel!
+    
+    let scheduleArray = ["Regular", "Rally", "Late Start", "Minimum", "Extended Break", "Extended Lunch"]
 
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return scheduleArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return scheduleArray[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        currentSchedule.text = scheduleArray[row]
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        /* Do any additional setup after loading the view, typically from a nib.
-         let switchButton = UIButton(type: .Custom)
-         switchButton.selected = true
-         switchButton.setImage(UIImage(named: "on-switch"), forState: .Selected)
-         switchButton.setImage(UIImage(named: "off-switch"), forState: .Normal)
-         Use switchButton.selected instead of switch1.on. You'll have to toggle switchButton.selected when it is tapped (switchButton.selected = !switchButton.selected).
-
-         */
         
-        //classNotificationSwitch.setImage(UIImage(named: "on-switch"), for: .selected)
+        classNotificationSwitch = UISwitch(frame: CGRect(x: 20, y: 125, width: 0, height: 0))
+        breakNotificationSwitch = UISwitch(frame: CGRect(x: 20, y: 200, width: 0, height: 0))
+        view.addSubview(classNotificationSwitch)
+        view.addSubview(breakNotificationSwitch)
+        /*breakNotificationLabel = UILabel(frame: CGRect(x: 20, y: 175, width: 0, height: 0))
+        breakNotificationLabel.text = "Break Notification"
+        breakNotificationLabel.textColor = UIColor.black
+        breakNotificationLabel.layer.backgroundColor = UIColor.gray.cgColor
+        self.view.addSubview(breakNotificationLabel)*/
+        // CGRectMake has been deprecated - and should be let, not var
+        let label = UILabel(frame: CGRect(x: 20, y: 175, width: 200, height: 21))
         
-        schedule.selectedRow(inComponent: 0)
+        // you will probably want to set the font (remember to use Dynamic Type!)
+        //label.font = UIFont.preferredFont(forTextStyle: .footnote)
+        
+        // and set the text color too - remember good contrast
+        label.textColor = .black
+        
+        // may not be necessary (e.g., if the width & height match the superview)
+        // if you do need to center, CGPointMake has been deprecated, so use this
+        //label.center = CGPoint(x: 20, y: 175)
+        
+        // this changed in Swift 3 (much better, no?)
+        //label.textAlignment = .center
+        
+        label.text = "Break Notification"
+        
+        self.view.addSubview(label)
+        
+        turnSwitchOn()
+        currentSchedule.text = scheduleArray[0]
+    }
+    
+    func turnSwitchOn(){
+        classNotificationSwitch.setOn(false, animated: true)
+        if classNotificationSwitch.isOn {
+            print("the switch is on")
+        } else {
+            print("the switch is off")
+        }
     }
 
     @IBAction func saveTapped(_ sender: UIBarButtonItem){

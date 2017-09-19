@@ -57,13 +57,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Class Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoZ-pg-DZj" customClass="ScheduleLabel" customModule="TwoMinuteWarning" customModuleProvider="target">
-                                <rect key="frame" x="20" y="98" width="205" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dress Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZd-QI-omP">
                                 <rect key="frame" x="20" y="261" width="205" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -105,7 +98,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="classNotificationLabel" destination="yoZ-pg-DZj" id="IyN-dZ-6uW"/>
                         <outlet property="currentSchedule" destination="LkZ-He-2xL" id="X6A-jI-9CH"/>
                         <outlet property="schedulePicker" destination="Xrh-8Z-isa" id="1J0-oQ-T15"/>
                     </connections>

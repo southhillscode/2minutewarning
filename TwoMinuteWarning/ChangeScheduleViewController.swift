@@ -13,8 +13,7 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
     var classNotificationSwitch: UISwitch!
     var breakNotificationSwitch: UISwitch!
     var dressNotificationSwitch: UISwitch!
-    
-    @IBOutlet weak var classNotificationLabel: ScheduleLabel!
+    var classNotificationLabel: UILabel!
     var breakNotificationLabel:  ScheduleLabel!
     var dressNotificationLabel:  ScheduleLabel!
     
@@ -42,7 +41,6 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        classNotificationLabel.textColor = UIColor.black
         classNotificationSwitch = UISwitch(frame: CGRect(x: 20, y: 125, width: 0, height: 0))
         breakNotificationSwitch = UISwitch(frame: CGRect(x: 20, y: 200, width: 0, height: 0))
         view.addSubview(classNotificationSwitch)
@@ -53,27 +51,36 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
         breakNotificationLabel.layer.backgroundColor = UIColor.gray.cgColor
         self.view.addSubview(breakNotificationLabel)*/
         // CGRectMake has been deprecated - and should be let, not var
-        let label = UILabel(frame: CGRect(x: 20, y: 175, width: 200, height: 21))
+        //let label = UILabel(frame: CGRect(x: 20, y: 175, width: 200, height: 21))
         
         // you will probably want to set the font (remember to use Dynamic Type!)
         //label.font = UIFont.preferredFont(forTextStyle: .footnote)
         
         // and set the text color too - remember good contrast
-        label.textColor = .black
+        //label.textColor = .black
         
         // may not be necessary (e.g., if the width & height match the superview)
         // if you do need to center, CGPointMake has been deprecated, so use this
-        //label.center = CGPoint(x: 20, y: 175)
+        //classNotificationLabel.center = CGPoint(x: 20, y: 175)
         
         // this changed in Swift 3 (much better, no?)
-        //label.textAlignment = .center
+        //classNotificationLabel.textAlignment = .center
         
-        label.text = "Break Notification"
-        
-        self.view.addSubview(label)
+        // set text of label
+        //classNotificationLabel = ScheduleLabel()
+        //label.text = "Break Notification"
+        classNotificationLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        addLabel()
+        self.view.addSubview(classNotificationLabel)
+        //self.view.addSubview(label)
         
         turnSwitchOn()
         currentSchedule.text = scheduleArray[0]
+    }
+    
+    func addLabel(){
+        classNotificationLabel.textColor = UIColor.black
+        classNotificationLabel.text = "Class Notification"
     }
     
     func turnSwitchOn(){

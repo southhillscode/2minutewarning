@@ -13,9 +13,10 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
     var classNotificationSwitch: UISwitch!
     var breakNotificationSwitch: UISwitch!
     var dressNotificationSwitch: UISwitch!
-    var classNotificationLabel:  UILabel!
-    var breakNotificationLabel:  UILabel!
-    var dressNotificationLabel:  UILabel!
+    
+    @IBOutlet weak var classNotificationLabel: ScheduleLabel!
+    var breakNotificationLabel:  ScheduleLabel!
+    var dressNotificationLabel:  ScheduleLabel!
     
     @IBOutlet weak var schedulePicker: UIPickerView!
     @IBOutlet weak var currentSchedule: UILabel!
@@ -41,7 +42,7 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        classNotificationLabel.textColor = UIColor.black
         classNotificationSwitch = UISwitch(frame: CGRect(x: 20, y: 125, width: 0, height: 0))
         breakNotificationSwitch = UISwitch(frame: CGRect(x: 20, y: 200, width: 0, height: 0))
         view.addSubview(classNotificationSwitch)

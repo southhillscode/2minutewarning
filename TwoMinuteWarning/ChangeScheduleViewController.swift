@@ -10,7 +10,8 @@ import UIKit
 
 class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    @IBOutlet weak var classNotificationLabel: ScheduleLabel!
+    @IBOutlet weak var classNotificationLabel: UILabel!
+    var label: UILabel!
     var classNotificationSwitch: UISwitch!
     var breakNotificationSwitch: UISwitch!
     var dressNotificationSwitch: UISwitch!
@@ -67,12 +68,22 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
         //classNotificationLabel.textAlignment = .center
         
         // set text of label
-        classNotificationLabel = ScheduleLabel()
-        label.text = "Break Notification"
-        self.view.addSubview(classNotificationLabel)
+        //classNotificationLabel = ScheduleLabel()
+        //label.text = "Break Notification"
+        myText = "Class Notification"
+        //self.view.addSubview(classNotificationLabel as UILabel)
         self.view.addSubview(label)
         turnSwitchOn()
         currentSchedule.text = scheduleArray[0]
+    }
+    
+    var myText: String{
+        get{
+            return String(describing: classNotificationLabel.text!)
+        }
+        set(newText){
+            classNotificationLabel.text = String(newText)!
+        }
     }
     
     func addLabel(){

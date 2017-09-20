@@ -86,6 +86,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrb-ir-fOJ" customClass="ScheduleLabel" customModule="TwoMinuteWarning" customModuleProvider="target">
+                                <rect key="frame" x="20" y="105" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -98,6 +105,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="classNotificationLabel" destination="Jrb-ir-fOJ" id="TKW-Nh-MtV"/>
                         <outlet property="currentSchedule" destination="LkZ-He-2xL" id="X6A-jI-9CH"/>
                         <outlet property="schedulePicker" destination="Xrh-8Z-isa" id="1J0-oQ-T15"/>
                     </connections>

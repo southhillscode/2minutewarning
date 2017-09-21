@@ -10,6 +10,10 @@ import UIKit
 
 class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    @IBAction func myButton(_ sender: UIButton) {
+        let digit = sender.currentTitle!
+        print("\(digit) was touched")
+    }
     @IBOutlet weak var classNotificationLabel: UILabel!
     var label: UILabel!
     var classNotificationSwitch: UISwitch!

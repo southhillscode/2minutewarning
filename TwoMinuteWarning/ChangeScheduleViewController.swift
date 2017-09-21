@@ -41,6 +41,7 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentSchedule.text = scheduleArray[row]
+        setNotification()
     }
     
     
@@ -74,7 +75,8 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
         myText = "class notification"
         self.view.addSubview(label)
         turnSwitchOn()
-        currentSchedule.text = scheduleArray[0]
+        
+        
     }
     
     var myText: String{
@@ -84,6 +86,31 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
         set(newText){
             classNotificationLabel.text = String(newText)
             classNotificationLabel.text = String(newText)?.capitalized
+        }
+    }
+    
+    func setNotification(){
+        switch currentSchedule.text! {
+        case "Regular":
+            //Set Regular Schedule Notifications
+            print("Regular Schedule Set")
+        case "Rally":
+            //Set Regular Schedule Notifications
+            print("Rally Schedule Set")
+        case "Late Start":
+            //Set Regular Schedule Notifications
+            print("Late Start Schedule Set")
+        case "Minimum":
+            //Set Regular Schedule Notifications
+            print("Minimum Schedule Set")
+        case "Extended Break":
+            //Set Regular Schedule Notifications
+            print("Extended Break Schedule Set")
+        case "Extended Lunch":
+            //Set Regular Schedule Notifications
+            print("Extended Lunch Schedule Set")
+        default:
+            print("this is the default setting")
         }
     }
     
@@ -98,6 +125,7 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
 
     @IBAction func saveTapped(_ sender: UIBarButtonItem){
         print("The save button was tapped.")
+        print(currentSchedule.text!)
         
         
         

@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    let myDate = Date()
+    let formatter = DateFormatter()
+
     @IBAction func myButton(_ sender: UIButton) {
         let digit = sender.currentTitle!
         print("\(digit) was touched")
@@ -44,7 +48,6 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
         setNotification()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         classNotificationSwitch = UISwitch(frame: CGRect(x: 20, y: 125, width: 0, height: 0))
@@ -71,12 +74,17 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
         //labelNotificationLabel.textAlignment = .center
         
         // set text of label
-        label.text = "Break Notification"
+        label.text = "Brunch Notification"
         myText = "class notification"
+        // add Label to View
         self.view.addSubview(label)
         turnSwitchOn()
         
-        
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        formatter.string(from: myDate)
+        print(myDate)
+
     }
     
     var myText: String{
@@ -127,14 +135,12 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
         print("The save button was tapped.")
         print(currentSchedule.text!)
         
-        
-        
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 

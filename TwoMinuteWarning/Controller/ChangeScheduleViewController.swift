@@ -141,8 +141,8 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
         
         let today = Date()
         var dateComponents = Calendar.current.dateComponents([.month, .day], from: today)
-        dateComponents.hour = 4
-        dateComponents.minute = 50
+        dateComponents.hour = 9
+        dateComponents.minute = 32
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         if let identifier = currentSchedule.text{

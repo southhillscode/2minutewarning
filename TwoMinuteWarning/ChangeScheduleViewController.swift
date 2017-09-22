@@ -134,6 +134,23 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBAction func saveTapped(_ sender: UIBarButtonItem){
         print("The save button was tapped.")
         print(currentSchedule.text!)
+        let messege = "\(currentSchedule.text!) is set for notifications"
+        let content = UNMutableNotificationContent()
+        content.body = messege
+        content.sound = UNNotificationSound.default()
+        
+        let today = Date()
+        var dateComponents = Calendar.current.dateComponents([.month, .day], from: today)
+        dateComponents.hour = 4
+        dateComponents.minute = 50
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        if let identifier = currentSchedule.text{
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        center.add(request, withCompletionHandler: nil)
+        }
+        
+
         
     }
     

@@ -13,12 +13,11 @@ class Data {
         
         //Array of type ScheduleModels
         var data = [ScheduleModel]()
-        data.append(ScheduleModel(scheduleName: "Regular", period0: 738, period1: 835, period2: 932, period3: 1029, period4: 1136, period5: 1233, period6: 1405, period7: 1502, date: Date()))
-        data.append(ScheduleModel(scheduleName: "Rally", period0: 738, period1: 835, period2: 932, period3: 1029, period4: 1136, period5: 1233, period6: 1405, period7: 1502, date: Date()))
-        data.append(ScheduleModel(scheduleName: "Late Start", period0: 738, period1: 835, period2: 932, period3: 1029, period4: 1136, period5: 1233, period6: 1405, period7: 1502, date: Date()))
-        data.append(ScheduleModel(scheduleName: "Minimum Day", period0: 738, period1: 835, period2: 932, period3: 1029, period4: 1136, period5: 1233, period6: 1405, period7: 1502, date: Date()))
-        data.append(ScheduleModel(scheduleName: "Extended Break", period0: 738, period1: 835, period2: 932, period3: 1029, period4: 1136, period5: 1233, period6: 1405, period7: 1502, date: Date()))
-        data.append(ScheduleModel(scheduleName: "Extended Lunch", period0: 738, period1: 835, period2: 932, period3: 1029, period4: 1136, period5: 1233, period6: 1405, period7: 1502, date: Date()))
+        data.append(ScheduleModel(scheduleName: "Regular", period0: "Place Entire Schedule Here", period1: "8:37", period2: "9:34", period3: "10:31", period4: "11:38", period5: "12:33", period6: "2:07", period7: "3:04", date: "My Date"))
+        data.append(ScheduleModel(scheduleName: "Late Start", period0: "Place Entire Schedule Here", period1: "8:37", period2: "9:34", period3: "10:31", period4: "11:38", period5: "12:33", period6: "2:07", period7: "3:04", date: "My Date"))
+        data.append(ScheduleModel(scheduleName: "Extended Break", period0: "Place Entire Schedule Here", period1: "8:37", period2: "9:34", period3: "10:31", period4: "11:38", period5: "12:33", period6: "2:07", period7: "3:04", date: "My Date"))
+        data.append(ScheduleModel(scheduleName: "Extended Lunch", period0: "Place Entire Schedule Here", period1: "8:37", period2: "9:34", period3: "10:31", period4: "11:38", period5: "12:33", period6: "2:07", period7: "3:04", date: "My Date"))
+        data.append(ScheduleModel(scheduleName: "Minimum Day", period0: "Place Entire Schedule Here", period1: "8:37", period2: "9:34", period3: "10:31", period4: "11:38", period5: "12:33", period6: "2:07", period7: "3:04", date: "My Date"))
         return data
     }
 }

@@ -43,12 +43,28 @@ extension ScheduleModelPicker: UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
     {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: customWidth, height: customHeight))
+        
         let topLabel = UILabel(frame: CGRect(x:0, y:0, width: customWidth, height: 15))
         topLabel.text = modelData[row].scheduleName
         topLabel.textColor = .black
         topLabel.textAlignment = .center
         topLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightThin)
         view.addSubview(topLabel)
+        
+        let middleLabel = UILabel(frame: CGRect(x:0, y:0, width: customWidth, height: customHeight))
+        middleLabel.text = modelData[row].period0
+        middleLabel.textColor = .black
+        middleLabel.textAlignment = .center
+        middleLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightThin)
+        view.addSubview(middleLabel)
+        
+        let bottomLabel = UILabel(frame: CGRect(x:0, y:78, width: customWidth, height: 15))
+        bottomLabel.text = modelData[row].date
+        bottomLabel.textColor = .black
+        bottomLabel.textAlignment = .center
+        bottomLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightThin)
+        view.addSubview(bottomLabel)
+        
         return view
     }
 }

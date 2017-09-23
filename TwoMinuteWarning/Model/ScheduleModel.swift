@@ -11,17 +11,17 @@ import Foundation
 class ScheduleModel {
     
         var scheduleName: String
-        var date: Date
-        var period0: Int
-        var period1: Int
-        var period2: Int
-        var period3: Int
-        var period4: Int
-        var period5: Int
-        var period6: Int
-        var period7: Int
+        var date: String
+        var period0: String
+        var period1: String
+        var period2: String
+        var period3: String
+        var period4: String
+        var period5: String
+        var period6: String
+        var period7: String
     
-    init(scheduleName:String, period0: Int, period1: Int, period2: Int, period3: Int,period4: Int, period5: Int, period6: Int, period7: Int, date: Date) {
+    init(scheduleName:String, period0: String, period1: String, period2: String, period3: String,period4: String, period5: String, period6: String, period7: String, date: String) {
         
         self.scheduleName = scheduleName
         self.period0 = period0

@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ChangeSceduleViewController: UIViewController {
     
     let myDate = Date()
     let formatter = DateFormatter()
@@ -27,7 +27,11 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
     var dressNotificationLabel:  ScheduleLabel!
     
     @IBOutlet weak var schedulePicker:  UIPickerView!
+    var dateModelPicker: ScheduleModelPicker!
+   
+    
     @IBOutlet weak var currentSchedule: UILabel!
+    
     
     let scheduleArray = ["Regular", "Rally", "Late Start", "Minimum", "Extended Break", "Extended Lunch"]
 
@@ -84,6 +88,13 @@ class ChangeSceduleViewController: UIViewController, UIPickerViewDataSource, UIP
         formatter.timeStyle = .short
         formatter.string(from: myDate)
         print(myDate)
+        
+        dateModelPicker = ScheduleModelPicker()
+        dateModelPicker.modelData = Data.getData()
+        
+        schedulePicker.delegate = dateModelPicker
+        schedulePicker.dataSource = dateModelPicker
+        
     }
     
     var myText: String{

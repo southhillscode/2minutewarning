@@ -17,6 +17,7 @@
 		D43867F61F6808C00044FD57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43867F41F6808C00044FD57 /* LaunchScreen.storyboard */; };
 		D43868001F6809D40044FD57 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43867FF1F6809D40044FD57 /* CloudKit.framework */; };
 		D45949001F6BF374004B0F9B /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45948FF1F6BF374004B0F9B /* ScheduleModel.swift */; };
+		D4B06EF91F77CE0100B27942 /* CSExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B06EF81F77CE0100B27942 /* CSExtention.swift */; };
 		D4ECEEC31F708F1200BEB700 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ECEEC21F708F1200BEB700 /* Label.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		D43867FD1F6808DB0044FD57 /* TwoMinuteWarning.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TwoMinuteWarning.entitlements; sourceTree = "<group>"; };
 		D43867FF1F6809D40044FD57 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D45948FF1F6BF374004B0F9B /* ScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
+		D4B06EF81F77CE0100B27942 /* CSExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSExtention.swift; sourceTree = "<group>"; };
 		D4ECEEC21F708F1200BEB700 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 			children = (
 				D43867E81F6808C00044FD57 /* AppDelegate.swift */,
 				D43867EA1F6808C00044FD57 /* ChangeScheduleViewController.swift */,
+				D4B06EF81F77CE0100B27942 /* CSExtention.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B06EF91F77CE0100B27942 /* CSExtention.swift in Sources */,
 				D43867EB1F6808C00044FD57 /* ChangeScheduleViewController.swift in Sources */,
 				156B22711F758763004C5959 /* Data.swift in Sources */,
 				D43867F11F6808C00044FD57 /* TwoMinuteWarning.xcdatamodeld in Sources */,

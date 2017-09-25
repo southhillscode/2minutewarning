@@ -45,10 +45,16 @@ extension ScheduleModelPicker: UIPickerViewDelegate
     {
         rotationAngle = 90 * (.pi/180)
         
-        let myCounter = 8
-        for myCounter in 0..<myCounter {
-            print("\(modelData[myCounter].time)")
+        let myCounter = modelData.count
+        print(myCounter)
+        for myCounter in 0..<16 {
+            if modelData[myCounter].scheduleName == "Rally" {
+                print("This is my \(modelData[myCounter].scheduleName)")
+            } else {
+                print("this is NOT my Rally")
+            }
         }
+       
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: customWidth, height: customHeight))
         

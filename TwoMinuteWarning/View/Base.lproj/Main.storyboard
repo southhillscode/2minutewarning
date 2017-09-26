@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="h6S-U7-cBj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fc4-1u-Qjb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -144,6 +144,69 @@
             </objects>
             <point key="canvasLocation" x="1680.8" y="36.431784107946029"/>
         </scene>
+        <!--On BoardVC-->
+        <scene sceneID="v43-hE-mhO">
+            <objects>
+                <viewController storyboardIdentifier="OnBoardVC" id="dLN-dc-tDh" customClass="OnBoardVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="koX-Jb-aGV"/>
+                        <viewControllerLayoutGuide type="bottom" id="hoV-n0-uFB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qEO-Ul-Y4s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AudobonBG" translatesAutoresizingMaskIntoConstraints="NO" id="SbS-oo-4wX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.40716794810000001" green="0.83474336140000005" blue="0.43828619680000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6I-y2-VZx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="B02-Iy-Ro8">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="OmP-in-NP2">
+                                            <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pJ-zM-52d">
+                                            <rect key="frame" x="97" y="535" width="180" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                            <state key="normal" title="Continue"/>
+                                            <connections>
+                                                <action selector="continueTouched:" destination="dLN-dc-tDh" eventType="touchUpInside" id="M6d-R5-yHn"/>
+                                            </connections>
+                                        </button>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="auS-jD-6Ia">
+                                            <rect key="frame" x="88" y="487" width="198" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="keyPath" value=""/>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40716794810000001" green="0.83474336140000005" blue="0.43828619680000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="auS-jD-6Ia" id="Pi8-fJ-gHF"/>
+                        <segue destination="fc4-1u-Qjb" kind="show" id="unO-tG-j6g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HHd-HA-gQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1271.2" y="35.532233883058474"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ocb-K9-wxs">
             <objects>
@@ -181,4 +244,11 @@
             <point key="canvasLocation" x="971.20000000000005" y="37.781109445277366"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AudobonBG" width="1242" height="2208"/>
+        <image name="logo" width="198" height="300"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="unO-tG-j6g"/>
+    </inferredMetricsTieBreakers>
 </document>

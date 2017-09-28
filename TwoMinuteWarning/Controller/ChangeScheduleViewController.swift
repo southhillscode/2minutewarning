@@ -56,6 +56,9 @@ class ChangeScheduleViewController: UIViewController {
         schedulePicker.delegate = dateModelPicker
         schedulePicker.dataSource = dateModelPicker
         
+        currentSchedule.text! = dateModelPicker.getName()
+        print(currentSchedule.text!)
+        
     }
     
     var myText: String{

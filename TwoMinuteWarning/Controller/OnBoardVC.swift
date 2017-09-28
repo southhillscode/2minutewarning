@@ -10,15 +10,12 @@ import UIKit
 
 class OnBoardVC: UIViewController {
     
-    @IBOutlet weak var nameTextField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
    
     @IBAction func continueTouched(_ sender: UIButton) {
         
-        UserDefaults.standard.set(nameTextField, forKey: "name")
         performSegue(withIdentifier: "toMainSegue", sender: self)
     }
 }

@@ -23,13 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var vc : UIViewController
         
-        if((UserDefaults.standard.value(forKey: "name")) != nil){
-            //Show Main screen
-            vc = storyboard.instantiateInitialViewController()!
-        } else {
-            //Show OnBoardVC storyboard
-            vc = storyboard.instantiateViewController(withIdentifier: "OnBoardVC")
-        }
+        
+        
+        //Show OnBoardVC storyboard
+        vc = storyboard.instantiateViewController(withIdentifier: "OnBoardVC")
+        
         
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()

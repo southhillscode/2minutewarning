@@ -8,6 +8,8 @@
 
 import UIKit
 
+//Test commit Code Club
+
 class ScheduleLabel: UILabel {
     
     required init(coder aDecoder: NSCoder) {

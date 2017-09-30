@@ -50,38 +50,19 @@ extension ScheduleModelPicker: UIPickerViewDelegate
         setName(thisIsMyVariable: currentSchedule!)
         let myCounter = modelData.count
         print(myCounter)
-        for myCounter in 0..<16 {
-            if modelData[myCounter].scheduleName == "Rally" {
-                print("This is my \(modelData[myCounter].scheduleName)")
-                currentSchedule = modelData[myCounter].scheduleName
-            } else {
-                print("this is NOT my Rally")
-            }
+        for _ in modelData {
+                print("this is my time \(modelData[row].time)")
+            
         }
-       
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: customWidth, height: customHeight))
         
-        let topLabel = UILabel(frame: CGRect(x:0, y:10, width: customWidth, height: 15))
-        topLabel.text = modelData[row].scheduleName
-        topLabel.textColor = .black
-        topLabel.textAlignment = .center
-        topLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightBold )
-        view.addSubview(topLabel)
-        
         let middleLabel = UILabel(frame: CGRect(x:0, y:0, width: customWidth, height: customHeight))
-        middleLabel.text = "Period \(modelData[row].period)"
+        middleLabel.text = modelData[row].scheduleName
         middleLabel.textColor = .black
         middleLabel.textAlignment = .center
         middleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightThin)
         view.addSubview(middleLabel)
-        
-        let bottomLabel = UILabel(frame: CGRect(x:0, y:78, width: customWidth, height: 15))
-        bottomLabel.text = modelData[row].time
-        bottomLabel.textColor = .black
-        bottomLabel.textAlignment = .center
-        bottomLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightThin)
-        view.addSubview(bottomLabel)
         
         view.transform = CGAffineTransform(rotationAngle: rotationAngle)
         
@@ -89,14 +70,15 @@ extension ScheduleModelPicker: UIPickerViewDelegate
     }
     
     func getName() -> String {
-        
-        return "\(currentSchedule) is my Schedule"
+        let myCurrentstring = "currentSchedule!"
+        return myCurrentstring
         
     }
     
     func setName(thisIsMyVariable myLabel: String) {
         currentSchedule! = myLabel
         print("\(currentSchedule!) is in my SetName")
+        
     }
 }
 

@@ -63,10 +63,7 @@ class ChangeScheduleViewController: UIViewController {
         //schedulePicker data is set to the dateModelPicker's data.
         schedulePicker.dataSource = dateModelPicker
         
-        currentSchedule.text = "harry"
-        myString = currentSchedule.text!
-        
-        print(myString)
+        currentSchedule.text = dateModelPicker.getName()
         
     }
     

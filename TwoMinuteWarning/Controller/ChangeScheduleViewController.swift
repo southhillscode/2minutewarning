@@ -16,6 +16,7 @@ class ChangeScheduleViewController: UIViewController {
     @IBOutlet weak var breakNotificationLabel: UILabel!
     @IBOutlet weak var currentSchedule: UILabel!
     @IBOutlet weak var schedulePicker:  UIPickerView!
+    var myString: String!
     
     var dateModelPicker: ScheduleModelPicker!
     let myDate = Date()
@@ -48,16 +49,24 @@ class ChangeScheduleViewController: UIViewController {
         
         let y = schedulePicker.frame.origin.y
         
+        //dateModelPicker becomes a UIPicker reference of type ScheduleModelPicker.
         dateModelPicker = ScheduleModelPicker()
+        //dateModelPicker fills its instance array with data that it gets from the Model's Date class.
         dateModelPicker.modelData = Data.getData()
         
+        //Transform the original pickerView that was place on the storyboard
         schedulePicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
         schedulePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
+        
+        //schedulePicker (*view*) uses delegate and datasource to fill info and notify when this data has changed.
         schedulePicker.delegate = dateModelPicker
+        //schedulePicker data is set to the dateModelPicker's data.
         schedulePicker.dataSource = dateModelPicker
         
-        currentSchedule.text! = dateModelPicker.getName()
-        print(currentSchedule.text!)
+        currentSchedule.text = "harry"
+        myString = currentSchedule.text!
+        
+        print(myString)
         
     }
     

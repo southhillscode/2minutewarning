@@ -89,13 +89,13 @@ extension ScheduleModelPicker: UIPickerViewDelegate
     }
     
     func getName() -> String {
-        print("\(currentSchedule) is my Schedule")
-        return "hello"
+        
+        return "\(currentSchedule) is my Schedule"
         
     }
     
-    func setName(thisIsMyVariable:String) {
-        currentSchedule! = thisIsMyVariable
+    func setName(thisIsMyVariable myLabel: String) {
+        currentSchedule! = myLabel
         print("\(currentSchedule!) is in my SetName")
     }
 }

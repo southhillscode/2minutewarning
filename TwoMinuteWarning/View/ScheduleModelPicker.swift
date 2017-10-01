@@ -66,21 +66,21 @@ extension ScheduleModelPicker: UIPickerViewDelegate
         topLabel.text = modelData[row].scheduleName
         topLabel.textColor = .black
         topLabel.textAlignment = .center
-        topLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightBold )
+        topLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.bold )
         view.addSubview(topLabel)
         
         let middleLabel = UILabel(frame: CGRect(x:0, y:0, width: customWidth, height: customHeight))
         middleLabel.text = "Period \(modelData[row].period)"
         middleLabel.textColor = .black
         middleLabel.textAlignment = .center
-        middleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightThin)
+        middleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.thin)
         view.addSubview(middleLabel)
         
         let bottomLabel = UILabel(frame: CGRect(x:0, y:78, width: customWidth, height: 15))
         bottomLabel.text = modelData[row].time
         bottomLabel.textColor = .black
         bottomLabel.textAlignment = .center
-        bottomLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightThin)
+        bottomLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.thin)
         view.addSubview(bottomLabel)
         
         view.transform = CGAffineTransform(rotationAngle: rotationAngle)

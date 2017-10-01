@@ -72,7 +72,6 @@ class ChangeScheduleViewController: UIViewController {
         }
         set(newText){
             classNotificationLabel.text = String(newText)
-            classNotificationLabel.text = String(newText)?.capitalized
         }
     }
     

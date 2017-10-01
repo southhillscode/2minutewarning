@@ -8,7 +8,7 @@
 
 import UIKit
 
-//Test commit Code Club
+//Pull rquest
 
 class ScheduleLabel: UILabel {
     
@@ -37,7 +37,7 @@ class ScheduleLabel: UILabel {
         self.clipsToBounds = true
         self.textColor = UIColor.black
         self.text = "Class Notification"
-        self.frame = CGRect(x: 0, y: 0, width: 200, height: 21)
+        self.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
         self.setProperties(borderWidth:1.0, borderColor:UIColor.black)
     }
     

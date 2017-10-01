@@ -14,9 +14,7 @@ class Data {
         
         //Build-in schedule
         let regularSchedule: [Int:String] = [0:"7:40",1:"8:37",2:"9:34",3:"10:31",4:"11:38",5:"12:35",6:"2:07",7:"3:04"]
-        
         let rallySchedule: [Int:String] = [0:"7:40",1:"8:29",2:"9:18",3:"10:07",4:"12:02",5:"12:51",6:"2:15",7:"3:04"]
-        
         
         //Array of type ScheduleModels
         var data = [ScheduleModel]()

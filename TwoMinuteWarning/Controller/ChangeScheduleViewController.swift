@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ChangeScheduleViewController: UIViewController {
+class ChangeScheduleViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
     @IBOutlet weak var classNotificationLabel: UILabel!
     @IBOutlet weak var dressNotificationLabel: UILabel!
@@ -17,11 +17,13 @@ class ChangeScheduleViewController: UIViewController {
     @IBOutlet weak var currentSchedule: UILabel!
     @IBOutlet weak var schedulePicker:  UIPickerView!
     var myString: String!
-    
-    var dateModelPicker: ScheduleModelPicker!
     let myDate = Date()
     let formatter = DateFormatter()
     var rotationAngle: CGFloat!
+    var modelData: [ScheduleModel]!
+    let scheduleModelPicker = ScheduleModelPicker()
+
+
     
     @IBAction func classNotificationSwitch(_ sender: UISwitch) {
         classNotificationSet()
@@ -38,7 +40,13 @@ class ChangeScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        modelData = Data.getData()
+        
         myText = "class notification"
+        
+        //Set the default schedule text
+        currentSchedule.text = modelData[0].scheduleName
         
         formatter.dateStyle = .none
         formatter.timeStyle = .short
@@ -47,19 +55,16 @@ class ChangeScheduleViewController: UIViewController {
         
         rotationAngle = -90 * (.pi/180)
         
-        let y = schedulePicker.frame.origin.y
+        //let y = schedulePicker.frame.origin.y
+
+
         
-        dateModelPicker = ScheduleModelPicker()
-        dateModelPicker.modelData = Data.getData()
-        
-        schedulePicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
-        schedulePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
+        //schedulePicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
+        //schedulePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
         
         //schedulePicker (*view*) uses delegate and datasource to fill info and notify when this data has changed.
-        schedulePicker.delegate = dateModelPicker
-        schedulePicker.dataSource = dateModelPicker
-        
-        currentSchedule.text = "harry"
+        schedulePicker.delegate = self
+        schedulePicker.dataSource = self
         myString = currentSchedule.text!
         
         print(myString)
@@ -122,9 +127,56 @@ class ChangeScheduleViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+   
+    
+    //UIPickerView Delegate
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int
+    {
+        return 1
     }
-}
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return modelData.count
+    }
+    
+    
+    //UIPickerViewDataSource
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return modelData[row].scheduleName
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return scheduleModelPicker.customHeight
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
+    {
+      
+        
+        //Return a pi
+        return scheduleModelPicker.getPickerView(pickerViewLabel: modelData[row].scheduleName)
+    }
+    
+    func getName() -> String {
+        
+        return "\(currentSchedule) is set as my Schedule"
+        
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        
+        
+        print(getName())
+        currentSchedule.text = modelData[row].scheduleName
 
+    }
+    
+
+    
+}
+    

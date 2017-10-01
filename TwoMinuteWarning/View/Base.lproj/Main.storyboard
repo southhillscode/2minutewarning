@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bDg-Yu-WVa" id="eko-BQ-zYB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -70,7 +70,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xrh-8Z-isa">
-                                <rect key="frame" x="0.0" y="305" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="305" width="375" height="260"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="XMO-vs-3EP"/>
@@ -144,7 +144,7 @@
                     <connections>
                         <outlet property="breakNotificationLabel" destination="y5f-LS-gxE" id="5yu-BW-Eb0"/>
                         <outlet property="classNotificationLabel" destination="Jrb-ir-fOJ" id="zxo-CC-V10"/>
-                        <outlet property="currentSchedule" destination="LkZ-He-2xL" id="qu4-2f-kIv"/>
+                        <outlet property="currentSchedule" destination="LkZ-He-2xL" id="nc9-U5-aoP"/>
                         <outlet property="dressNotificationLabel" destination="sZd-QI-omP" id="gtO-f9-pRv"/>
                         <outlet property="schedulePicker" destination="Xrh-8Z-isa" id="OQq-f4-wTN"/>
                     </connections>
@@ -248,6 +248,7 @@
         <image name="logo" width="198" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5fE-aF-uV5"/>
+        <segue reference="lqt-eP-lYI"/>
+        <segue reference="ade-yP-hDP"/>
     </inferredMetricsTieBreakers>
 </document>

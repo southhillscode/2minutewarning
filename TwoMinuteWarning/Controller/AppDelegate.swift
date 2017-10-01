@@ -18,6 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.window = UIWindow(frame:UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var vc : UIViewController
+        
+        
+        
+        //Show OnBoardVC storyboard
+        vc = storyboard.instantiateViewController(withIdentifier: "OnBoardVC")
+        
+        
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+        
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound], completionHandler: {(granted, error) in
         if granted {

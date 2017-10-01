@@ -22,6 +22,15 @@ class Data {
         data.append(ScheduleModel(scheduleName: "Regular", period: "6", time: "1:15-2:07"))
         data.append(ScheduleModel(scheduleName: "Regular", period: "7", time: "2:12-3:04"))
         
+        data.append(ScheduleModel(scheduleName: "Rally", period: "0", time: "6:49-7:40"))
+        data.append(ScheduleModel(scheduleName: "Rally", period: "1", time: "7:45-8:29"))
+        data.append(ScheduleModel(scheduleName: "Rally", period: "2", time: "8:34-9:18"))
+        data.append(ScheduleModel(scheduleName: "Rally", period: "3", time: "9:23-10:07"))
+        data.append(ScheduleModel(scheduleName: "Rally", period: "4", time: "11:18-12:02"))
+        data.append(ScheduleModel(scheduleName: "Rally", period: "5", time: "12:07-12:51"))
+        data.append(ScheduleModel(scheduleName: "Rally", period: "6", time: "1:31-2:15"))
+        data.append(ScheduleModel(scheduleName: "Rally", period: "7", time: "2:20-3:04"))
+        
         
         /*data.append(ScheduleModel(scheduleName: "Regular", period0: "7:45-8:37", period1: "8:42-9:34", period2: "9:39-10:31", period3: "10:36-10:41", breakPeriod: "10:41-10:41", period4: "10:46-11:38", period5: "11:43-12:35", lunch: "12:35-1:10", period6: "1:15-2:07", period7: "2:12-3:04", date: "My Date"))
         data.append(ScheduleModel(scheduleName: "Late Start", period0: "7:45-8:37", period1: "8:42-9:34", period2: "9:39-10:31", period3: "10:31", breakPeriod: "10:31-10:41", period4: "10:46-11:38", period5: "11:43-12:35", lunch: "12:35-1:10", period6: "1:15-2:07", period7: "2:12-3:04", date: "My Date"))

@@ -14,6 +14,7 @@ class ScheduleModelPicker: UIPickerView
     let customWidth: CGFloat = 100
     let customHeight: CGFloat = 100
     var rotationAngle: CGFloat!
+    var currentSchedule: String!
 }
 
 extension ScheduleModelPicker: UIPickerViewDataSource
@@ -44,11 +45,20 @@ extension ScheduleModelPicker: UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
     {
         rotationAngle = 90 * (.pi/180)
-        
-        let myCounter = 8
-        for myCounter in 0..<myCounter {
-            print("\(modelData[myCounter].time)")
+        currentSchedule = modelData[row].scheduleName
+        print("\(currentSchedule!) is in my pickerView")
+        setName(thisIsMyVariable: currentSchedule!)
+        let myCounter = modelData.count
+        print(myCounter)
+        for myCounter in 0..<16 {
+            if modelData[myCounter].scheduleName == "Rally" {
+                print("This is my \(modelData[myCounter].scheduleName)")
+                currentSchedule = modelData[myCounter].scheduleName
+            } else {
+                print("this is NOT my Rally")
+            }
         }
+       
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: customWidth, height: customHeight))
         
@@ -76,6 +86,17 @@ extension ScheduleModelPicker: UIPickerViewDelegate
         view.transform = CGAffineTransform(rotationAngle: rotationAngle)
         
         return view
+    }
+    
+    func getName() -> String {
+        
+        return "\(currentSchedule) is my Schedule"
+        
+    }
+    
+    func setName(thisIsMyVariable myLabel: String) {
+        currentSchedule! = myLabel
+        print("\(currentSchedule!) is in my SetName")
     }
 }
 

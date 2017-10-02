@@ -61,43 +61,19 @@ class ChangeScheduleViewController: UIViewController {
         schedulePicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
         schedulePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
     }
-    func setNotification(){
-        switch currentSchedule.text! {
-        case "Regular":
-            //Set Regular Schedule Notifications
-            print("Regular Schedule Set")
-        case "Rally":
-            //Set Regular Schedule Notifications
-            print("Rally Schedule Set")
-        case "Late Start":
-            //Set Regular Schedule Notifications
-            print("Late Start Schedule Set")
-        case "Minimum":
-            //Set Regular Schedule Notifications
-            print("Minimum Schedule Set")
-        case "Extended Break":
-            //Set Regular Schedule Notifications
-            print("Extended Break Schedule Set")
-        case "Extended Lunch":
-            //Set Regular Schedule Notifications
-            print("Extended Lunch Schedule Set")
-        default:
-            print("this is the default setting")
-        }
-    }
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem){
         
         print("The save button was tapped.")
-        let messege = "\(String(describing: currentSchedule.text)) is set for notifications"
+        let messege = "\(String(describing: currentSchedule.text!)) is set for notifications"
         let content = UNMutableNotificationContent()
         content.body = messege
         content.sound = UNNotificationSound.default()
         
         let today = Date()
         var dateComponents = Calendar.current.dateComponents([.month, .day], from: today)
-        dateComponents.hour = 9
-        dateComponents.minute = 32
+        dateComponents.hour = 12
+        dateComponents.minute = 45
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         if let identifier = currentSchedule.text{

@@ -7,7 +7,10 @@
 //
 
 import UIKit
-
+protocol ScheduleProtocol {
+    func getCurrentSchedule()
+    func setCurrentSchedule(string: String)
+}
 class ScheduleModelPicker: UIPickerView
 {
     
@@ -16,6 +19,7 @@ class ScheduleModelPicker: UIPickerView
     var customHeight: CGFloat = 100
     var rotationAngle: CGFloat!
     var myLabelName: String!
+    var schedulePickerDelegate: ScheduleProtocol!
 }
 
 extension ScheduleModelPicker: UIPickerViewDataSource
@@ -63,6 +67,7 @@ extension ScheduleModelPicker: UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         myLabelName = modelData[row].scheduleName
+        schedulePickerDelegate.setCurrentSchedule(string: myLabelName)
         switch myLabelName {
         case "Regular":
             //Set Regular Schedule Notifications

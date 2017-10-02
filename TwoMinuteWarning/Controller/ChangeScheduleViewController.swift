@@ -14,9 +14,9 @@ class ChangeScheduleViewController: UIViewController {
     @IBOutlet weak var classNotificationLabel: UILabel!
     @IBOutlet weak var dressNotificationLabel: UILabel!
     @IBOutlet weak var breakNotificationLabel: UILabel!
-    @IBOutlet weak var currentSchedule: UILabel!
-    @IBOutlet weak var schedulePicker:  UIPickerView!
-    var myString: String!
+    @IBOutlet var schedulePicker:  UIPickerView!
+    
+    @IBOutlet var currentSchedule: UILabel!
     
     var dateModelPicker: ScheduleModelPicker!
     let myDate = Date()
@@ -24,59 +24,43 @@ class ChangeScheduleViewController: UIViewController {
     var rotationAngle: CGFloat!
     
     @IBAction func classNotificationSwitch(_ sender: UISwitch) {
-        classNotificationSet()
+        setClassNotification()
     }
     
     @IBAction func breakNotificationSwitch(_ sender: UISwitch) {
-        breakNotificationSet()
+        setBreakNotification()
     }
     
     @IBAction func dressNotificationSwitch(_ sender: UISwitch) {
-        dressNotificationSet()
+        setDressNotification()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        myText = "class notification"
-        
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
-        formatter.string(from: myDate)
-        print(myDate)
-        
+       
         rotationAngle = -90 * (.pi/180)
         
         let y = schedulePicker.frame.origin.y
         
         //dateModelPicker becomes a UIPicker reference of type ScheduleModelPicker.
         dateModelPicker = ScheduleModelPicker()
+        
         //dateModelPicker fills its instance array with data that it gets from the Model's Date class.
         dateModelPicker.modelData = Data.getData()
+        
+        //schedulePicker (*view*) uses delegate and datasource to fill info and notify when this data has changed.
+        schedulePicker.delegate = dateModelPicker
+        
+        //schedulePicker data is set to the dateModelPicker's data.
+        schedulePicker.dataSource = dateModelPicker
+        
+        //set current schedule label with picker data
         
         //Transform the original pickerView that was place on the storyboard
         schedulePicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
         schedulePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
-        
-        //schedulePicker (*view*) uses delegate and datasource to fill info and notify when this data has changed.
-        schedulePicker.delegate = dateModelPicker
-        //schedulePicker data is set to the dateModelPicker's data.
-        schedulePicker.dataSource = dateModelPicker
-        
-        currentSchedule.text = dateModelPicker.getName()
-        
     }
-    
-    var myText: String{
-        get{
-            return String(describing: classNotificationLabel.text!)
-        }
-        set(newText){
-            classNotificationLabel.text = String(newText)
-            classNotificationLabel.text = String(newText)?.capitalized
-        }
-    }
-    
     func setNotification(){
         switch currentSchedule.text! {
         case "Regular":
@@ -105,8 +89,7 @@ class ChangeScheduleViewController: UIViewController {
     @IBAction func saveTapped(_ sender: UIBarButtonItem){
         
         print("The save button was tapped.")
-        print(currentSchedule.text!)
-        let messege = "\(currentSchedule.text!) is set for notifications"
+        let messege = "\(String(describing: currentSchedule.text)) is set for notifications"
         let content = UNMutableNotificationContent()
         content.body = messege
         content.sound = UNNotificationSound.default()

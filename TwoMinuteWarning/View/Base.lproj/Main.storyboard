@@ -36,7 +36,7 @@
                     <navigationItem key="navigationItem" title="Two Minute Warning" id="ezJ-IB-yAF">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GDT-9w-Kq1">
                             <connections>
-                                <segue destination="dLN-dc-tDh" kind="presentation" id="ys4-Ds-YDj"/>
+                                <segue destination="dLN-dc-tDh" kind="presentation" identifier="toMainSegue" id="ys4-Ds-YDj"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Akv-dr-PXB">
@@ -165,46 +165,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AudobonBG" translatesAutoresizingMaskIntoConstraints="NO" id="SbS-oo-4wX">
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AudobonBG" translatesAutoresizingMaskIntoConstraints="NO" id="SbS-oo-4wX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.40716794810000001" green="0.83474336140000005" blue="0.43828619680000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ks-9j-uwP">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ks-9j-uwP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="8Ry-kH-hk4">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8Ry-kH-hk4">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="LxB-Xp-hJe">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="LxB-Xp-hJe">
                                             <rect key="frame" x="67" y="284" width="240" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="128" id="8Zr-JR-mvF"/>
+                                            </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLa-kV-b31">
-                                            <rect key="frame" x="82" y="555" width="210" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qd-tB-aLx">
+                                            <rect key="frame" x="134" y="509" width="100" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Continue"/>
                                             <connections>
-                                                <action selector="continueTouched:" destination="dLN-dc-tDh" eventType="touchUpInside" id="GJJ-UR-KMl"/>
+                                                <action selector="continueTouched:" destination="dLN-dc-tDh" eventType="touchUpInside" id="ISr-qd-fx0"/>
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="LxB-Xp-hJe" firstAttribute="top" secondItem="8Ry-kH-hk4" secondAttribute="top" constant="284" id="4Xl-Vi-fo6"/>
+                                        <constraint firstItem="LxB-Xp-hJe" firstAttribute="centerX" secondItem="8Ry-kH-hk4" secondAttribute="centerX" id="9uh-7c-fBa"/>
+                                        <constraint firstItem="LxB-Xp-hJe" firstAttribute="leading" secondItem="8Ry-kH-hk4" secondAttribute="leading" constant="67" id="gen-XF-iny"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="0.40716794810000001" green="0.83474336140000005" blue="0.43828619680000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SbS-oo-4wX" firstAttribute="leading" secondItem="qEO-Ul-Y4s" secondAttribute="leading" id="Dcy-dX-8Un"/>
+                            <constraint firstItem="SbS-oo-4wX" firstAttribute="top" secondItem="qEO-Ul-Y4s" secondAttribute="top" id="N5L-KY-L5z"/>
+                            <constraint firstItem="4ks-9j-uwP" firstAttribute="bottom" secondItem="hoV-n0-uFB" secondAttribute="top" id="P39-Ai-TEl"/>
+                            <constraint firstItem="SbS-oo-4wX" firstAttribute="trailing" secondItem="4ks-9j-uwP" secondAttribute="trailing" id="WXd-lx-3jC"/>
+                            <constraint firstAttribute="trailing" secondItem="SbS-oo-4wX" secondAttribute="trailing" id="YIW-sR-KlY"/>
+                            <constraint firstItem="SbS-oo-4wX" firstAttribute="bottom" secondItem="hoV-n0-uFB" secondAttribute="top" id="cBY-wx-9yQ"/>
+                            <constraint firstItem="4ks-9j-uwP" firstAttribute="top" secondItem="SbS-oo-4wX" secondAttribute="top" id="ezK-w0-bC6"/>
+                            <constraint firstItem="SbS-oo-4wX" firstAttribute="leading" secondItem="4ks-9j-uwP" secondAttribute="leading" id="tpf-r5-Ie6"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <segue destination="hSJ-jp-FNm" kind="show" identifier="toMainSegue" id="rZ6-uv-sM7"/>
+                        <segue destination="hSJ-jp-FNm" kind="show" identifier="toMainSegue" id="dTZ-Fk-6ri"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHd-HA-gQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1810" y="804"/>
+            <point key="canvasLocation" x="-1810.4000000000001" y="803.74812593703155"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I3x-x0-Zem">
@@ -248,7 +263,6 @@
         <image name="logo" width="198" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lqt-eP-lYI"/>
         <segue reference="ade-yP-hDP"/>
     </inferredMetricsTieBreakers>
 </document>

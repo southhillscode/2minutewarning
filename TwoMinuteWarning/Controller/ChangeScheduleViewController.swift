@@ -9,7 +9,14 @@
 import UIKit
 import UserNotifications
 
-class ChangeScheduleViewController: UIViewController {
+class ChangeScheduleViewController: UIViewController, ScheduleProtocol {
+    func getCurrentSchedule() -> String {
+        return currentSchedule.text!
+    }
+    
+    func setCurrentSchedule(string curSched: String) {
+        currentSchedule.text = curSched
+    }
     
     @IBOutlet weak var classNotificationLabel: UILabel!
     @IBOutlet weak var dressNotificationLabel: UILabel!

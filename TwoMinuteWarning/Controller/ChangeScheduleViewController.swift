@@ -9,14 +9,8 @@
 import UIKit
 import UserNotifications
 
-class ChangeScheduleViewController: UIViewController, ScheduleProtocol {
-    func getCurrentSchedule() -> String {
-        return currentSchedule.text!
-    }
+class ChangeScheduleViewController: UIViewController, CurrentScheduleDelegate {
     
-    func setCurrentSchedule(string curSched: String) {
-        currentSchedule.text = curSched
-    }
     
     @IBOutlet weak var classNotificationLabel: UILabel!
     @IBOutlet weak var dressNotificationLabel: UILabel!
@@ -26,6 +20,16 @@ class ChangeScheduleViewController: UIViewController, ScheduleProtocol {
     @IBOutlet var currentSchedule: UILabel!
     
     var dateModelPicker: ScheduleModelPicker!
+    
+    func setCurrentSchedule(string myLabel: String) {
+        currentSchedule.text = myLabel
+    }
+    
+    func getCurrentSchedule() -> String{
+        return (currentSchedule.text)!
+    }
+    
+    
     let myDate = Date()
     let formatter = DateFormatter()
     var rotationAngle: CGFloat!
@@ -55,7 +59,7 @@ class ChangeScheduleViewController: UIViewController, ScheduleProtocol {
         
         //dateModelPicker fills its instance array with data that it gets from the Model's Date class.
         dateModelPicker.modelData = Data.getData()
-        
+
         //schedulePicker (*view*) uses delegate and datasource to fill info and notify when this data has changed.
         schedulePicker.delegate = dateModelPicker
         
@@ -73,6 +77,7 @@ class ChangeScheduleViewController: UIViewController, ScheduleProtocol {
         
         print("The save button was tapped.")
         let messege = "\(String(describing: currentSchedule.text!)) is set for notifications"
+        print(messege)
         let content = UNMutableNotificationContent()
         content.body = messege
         content.sound = UNNotificationSound.default()

@@ -7,9 +7,9 @@
 //
 
 import UIKit
-protocol ScheduleProtocol {
-    func getCurrentSchedule()
-    func setCurrentSchedule(string: String)
+protocol CurrentScheduleDelegate {
+    func setCurrentSchedule(string myLabel: String)
+    func getCurrentSchedule() -> String
 }
 class ScheduleModelPicker: UIPickerView
 {
@@ -19,7 +19,7 @@ class ScheduleModelPicker: UIPickerView
     var customHeight: CGFloat = 100
     var rotationAngle: CGFloat!
     var myLabelName: String!
-    var schedulePickerDelegate: ScheduleProtocol!
+    var scheduleDelegate: CurrentScheduleDelegate?
 }
 
 extension ScheduleModelPicker: UIPickerViewDataSource
@@ -37,6 +37,7 @@ extension ScheduleModelPicker: UIPickerViewDataSource
 
 extension ScheduleModelPicker: UIPickerViewDelegate
 {
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return modelData[row].scheduleName
     }
@@ -48,6 +49,7 @@ extension ScheduleModelPicker: UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
     {
         rotationAngle = 90 * (.pi/180)
+        
         let view = UIView(frame: CGRect(x: 0, y: 0, width: customWidth, height: customHeight))
         var schedulePickerBtn: UIButton!
         schedulePickerBtn = UIButton(frame: CGRect(x: 20, y: 275, width: customWidth, height: customHeight))
@@ -65,9 +67,11 @@ extension ScheduleModelPicker: UIPickerViewDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+
         myLabelName = modelData[row].scheduleName
-        schedulePickerDelegate.setCurrentSchedule(string: myLabelName)
+        print("\(myLabelName!) is in myLabelName")
+        scheduleDelegate?.setCurrentSchedule(string: myLabelName!)
+        
         switch myLabelName {
         case "Regular":
             //Set Regular Schedule Notifications

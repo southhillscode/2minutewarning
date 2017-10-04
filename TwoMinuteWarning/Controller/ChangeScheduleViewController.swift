@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ChangeScheduleViewController: UIViewController {
+class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     
     @IBOutlet weak var classNotificationLabel: UILabel!
     @IBOutlet weak var dressNotificationLabel: UILabel!
@@ -54,6 +54,9 @@ class ChangeScheduleViewController: UIViewController {
         
         //schedulePicker data is set to the dateModelPicker's data.
         schedulePicker.dataSource = dateModelPicker
+        
+        //set the schedulePickerDelegate to self
+        dateModelPicker.pickerDelegate = self
         
         //set current schedule label with picker data
         
@@ -111,5 +114,10 @@ class ChangeScheduleViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func selectionMade(schedule: String) {
+        currentSchedule.text = schedule
+    }
+    
 }
 

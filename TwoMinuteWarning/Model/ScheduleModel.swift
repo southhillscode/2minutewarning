@@ -9,7 +9,6 @@
 import Foundation
 
 class ScheduleModel {
-   
     
     var scheduleName: String
     var period: String
@@ -20,9 +19,13 @@ class ScheduleModel {
         self.period = period
         self.time = time
     }
-
+    
+    func getScheduleName() -> String {
+        return self.scheduleName
+    }
     
     func setTime(time: String){
         self.time = time
     }
 }
+

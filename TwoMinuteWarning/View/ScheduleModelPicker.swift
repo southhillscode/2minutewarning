@@ -7,10 +7,11 @@
 //
 
 import UIKit
-protocol CurrentScheduleDelegate {
-    func setCurrentSchedule(string myLabel: String)
-    func getCurrentSchedule() -> String
+
+protocol SchedulePickerDelegate {
+    func selectionMade(schedule:String)
 }
+
 class ScheduleModelPicker: UIPickerView
 {
     
@@ -19,7 +20,7 @@ class ScheduleModelPicker: UIPickerView
     var customHeight: CGFloat = 100
     var rotationAngle: CGFloat!
     var myLabelName: String!
-    var scheduleDelegate: CurrentScheduleDelegate?
+    var pickerDelegate: SchedulePickerDelegate? = nil
 }
 
 extension ScheduleModelPicker: UIPickerViewDataSource
@@ -37,7 +38,6 @@ extension ScheduleModelPicker: UIPickerViewDataSource
 
 extension ScheduleModelPicker: UIPickerViewDelegate
 {
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return modelData[row].scheduleName
     }
@@ -49,7 +49,6 @@ extension ScheduleModelPicker: UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
     {
         rotationAngle = 90 * (.pi/180)
-        
         let view = UIView(frame: CGRect(x: 0, y: 0, width: customWidth, height: customHeight))
         var schedulePickerBtn: UIButton!
         schedulePickerBtn = UIButton(frame: CGRect(x: 20, y: 275, width: customWidth, height: customHeight))
@@ -60,17 +59,24 @@ extension ScheduleModelPicker: UIPickerViewDelegate
         middleLabel.textColor = .black
         middleLabel.textAlignment = .center
         middleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightThin)
-    
+        
         view.addSubview(middleLabel)
         view.transform = CGAffineTransform(rotationAngle: rotationAngle)
         return view
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
+        
+        
+        
         myLabelName = modelData[row].scheduleName
-        print("\(myLabelName!) is in myLabelName")
-        scheduleDelegate?.setCurrentSchedule(string: myLabelName!)
+        
+        if pickerDelegate != nil {
+            
+            pickerDelegate?.selectionMade(schedule: myLabelName)
+            
+            
+        }
         
         switch myLabelName {
         case "Regular":
@@ -94,7 +100,7 @@ extension ScheduleModelPicker: UIPickerViewDelegate
         default:
             print("this is the default setting")
         }
-    
+        
         //print("\(myLabelName!) notification is set from ScheduleModelPicker class")
     }
 }

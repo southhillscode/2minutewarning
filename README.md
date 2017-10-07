@@ -1,4 +1,4 @@
-# 2minutewarning
+# 2 Minute Warning 1.0
 
 The 2 minute warnning app will send a 2 minute before the bell notification to the user.  This app is intended for 
 South Hills High School Teachers and staff.

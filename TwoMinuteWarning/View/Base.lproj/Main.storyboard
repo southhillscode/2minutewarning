@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Two Minute Warning-->
+        <!--Display Screen-->
         <scene sceneID="ZIP-K3-Tmz">
             <objects>
                 <tableViewController id="fc4-1u-Qjb" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                             <outlet property="delegate" destination="fc4-1u-Qjb" id="Q35-JL-n3S"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Two Minute Warning" id="ezJ-IB-yAF">
+                    <navigationItem key="navigationItem" title="Display Screen" id="ezJ-IB-yAF" userLabel="Display Screen">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GDT-9w-Kq1">
                             <connections>
                                 <segue destination="dLN-dc-tDh" kind="presentation" identifier="toMainSegue" id="ys4-Ds-YDj"/>
@@ -263,6 +263,7 @@
         <image name="logo" width="198" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="lqt-eP-lYI"/>
         <segue reference="ade-yP-hDP"/>
     </inferredMetricsTieBreakers>
 </document>

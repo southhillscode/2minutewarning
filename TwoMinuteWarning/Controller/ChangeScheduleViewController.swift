@@ -59,6 +59,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         dateModelPicker.pickerDelegate = self
         
         //set current schedule label with picker data
+        currentSchedule.text = "Regular"
         
         //Transform the original pickerView that was place on the storyboard
         schedulePicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
@@ -68,7 +69,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         switch currentSchedule.text! {
         case "Regular":
             //Set Regular Schedule Notifications
-            print("Regular Schedule Set")
+            print("\(currentSchedule.text!) Schedule Set from switch statement")
         case "Rally":
             //Set Regular Schedule Notifications
             print("Rally Schedule Set")
@@ -117,6 +118,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     
     func selectionMade(schedule: String) {
         currentSchedule.text = schedule
+        setNotification()
     }
     
 }

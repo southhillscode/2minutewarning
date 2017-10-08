@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SchedulePickerDelegate {
+protocol SchedulePickerDelegate: class {
     func selectionMade(schedule:String)
 }
 

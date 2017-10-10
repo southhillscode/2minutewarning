@@ -21,10 +21,12 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     var dateModelPicker: ScheduleModelPicker!
     let myDate = Date()
     let formatter = DateFormatter()
+    let setUpAlarm = MyAlarm()
     var rotationAngle: CGFloat!
     
     @IBAction func classNotificationSwitch(_ sender: UISwitch) {
         setClassNotification()
+       
     }
     
     @IBAction func breakNotificationSwitch(_ sender: UISwitch) {
@@ -65,12 +67,67 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         schedulePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
     }
     func setNotification(){
+        
+        
+        
+        //Get the current year, month, and day
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        
+        //Create var to hold the the scheduele
+        var regularSchedule : ScheduleModel!
+        var rallySchedule: ScheduleModel!
+        
+        //Loop through the data to extract the schedule
+        for schedule in dateModelPicker.modelData {
+            
+            switch schedule.scheduleName {
+                
+            case "Regular":
+                
+                regularSchedule = schedule
+                
+            case "Rally":
+                
+                rallySchedule = schedule
+                
+                default:
+                
+                print("\(schedule.scheduleName) not found")
+                
+                
+                
+            }
+            
+            
+            
+        }
+        
+        
         switch currentSchedule.text! {
         case "Regular":
-            //Set Regular Schedule Notifications
+            
+            //Loop theough each dictionaries of schedule in the scheduleModel
+            for (period,time) in regularSchedule.currentSchedule {
+                
+                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(regularSchedule.currentSchedule) is about to end in 2 minutes")
+                
+            }
+            
+      
             print("Regular Schedule Set")
+        
         case "Rally":
-            //Set Regular Schedule Notifications
+
+            //Loop theough each dictionaries of schedule in the scheduleModel
+            for (period,time) in rallySchedule.currentSchedule {
+                
+                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(rallySchedule.currentSchedule) is about to end in 2 minutes")
+                
+            }
             print("Rally Schedule Set")
         case "Late Start":
             //Set Regular Schedule Notifications
@@ -91,23 +148,32 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem){
         
-        print("The save button was tapped.")
-        let messege = "\(String(describing: currentSchedule.text)) is set for notifications"
-        let content = UNMutableNotificationContent()
-        content.body = messege
-        content.sound = UNNotificationSound.default()
         
-        let today = Date()
-        var dateComponents = Calendar.current.dateComponents([.month, .day], from: today)
-        dateComponents.hour = 9
-        dateComponents.minute = 32
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
-        if let identifier = currentSchedule.text{
-            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-            let center = UNUserNotificationCenter.current()
-            center.add(request, withCompletionHandler: nil)
-        }
+        
+        let alert = UIAlertController(title: "Confirmation", message: "Do you want to set \(currentSchedule.text!) as your current schedule?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            
+            //We want to clear everytime
+            self.setUpAlarm.clearNotification()
+            
+            //Then set the new notification with the new settings
+            self.setNotification()
+            
+            //Go back to the main screen
+            self.performSegue(withIdentifier: "goBack", sender: self)
+            
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Never Mind!", style: .destructive, handler: { (action) in
+            
+            
+            print("Action Cancelled")
+        }))
+
+       present(alert, animated: true, completion: nil)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -118,6 +184,19 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     func selectionMade(schedule: String) {
         currentSchedule.text = schedule
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        let destinationVC = segue.destination as! OnBoardVC
+        
+        destinationVC.loadViewIfNeeded()
+        destinationVC.currentSchedule.text = currentSchedule.text!
+        
+        
+    }
+    
     
 }
 

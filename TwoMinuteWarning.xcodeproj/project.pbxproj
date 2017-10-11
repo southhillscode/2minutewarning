@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		15576DF01F759ADF00F6D436 /* ScheduleModelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15576DEF1F759ADF00F6D436 /* ScheduleModelPicker.swift */; };
 		156B22711F758763004C5959 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B22701F758763004C5959 /* Data.swift */; };
+		5AA225C11F87CBB600F12185 /* MyAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA225C01F87CBB600F12185 /* MyAlarm.swift */; };
 		D43867E91F6808C00044FD57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43867E81F6808C00044FD57 /* AppDelegate.swift */; };
 		D43867EB1F6808C00044FD57 /* ChangeScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43867EA1F6808C00044FD57 /* ChangeScheduleViewController.swift */; };
 		D43867EE1F6808C00044FD57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43867EC1F6808C00044FD57 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		15576DEF1F759ADF00F6D436 /* ScheduleModelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModelPicker.swift; sourceTree = "<group>"; };
 		156B22701F758763004C5959 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		5AA225C01F87CBB600F12185 /* MyAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyAlarm.swift; path = TwoMinuteWarning/Model/MyAlarm.swift; sourceTree = SOURCE_ROOT; };
 		D43867E51F6808C00044FD57 /* TwoMinuteWarning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoMinuteWarning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D43867E81F6808C00044FD57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D43867EA1F6808C00044FD57 /* ChangeScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeScheduleViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				D4ECEEC21F708F1200BEB700 /* Label.swift */,
 				D45948FF1F6BF374004B0F9B /* ScheduleModel.swift */,
 				156B22701F758763004C5959 /* Data.swift */,
+				5AA225C01F87CBB600F12185 /* MyAlarm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -77,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				D4E2EBED1F7A7F4E00CE19DA /* OnBoardVC.swift */,
-				D43867E81F6808C00044FD57 /* AppDelegate.swift */,
 				D43867EA1F6808C00044FD57 /* ChangeScheduleViewController.swift */,
+				D43867E81F6808C00044FD57 /* AppDelegate.swift */,
 				D4B06EF81F77CE0100B27942 /* CSExtention.swift */,
 			);
 			path = Controller;
@@ -155,7 +158,7 @@
 				TargetAttributes = {
 					D43867E41F6808C00044FD57 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 275674938X;
+						DevelopmentTeam = 4W7FJ652MW;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -213,6 +216,7 @@
 				D4ECEEC31F708F1200BEB700 /* Label.swift in Sources */,
 				D43867E91F6808C00044FD57 /* AppDelegate.swift in Sources */,
 				15576DF01F759ADF00F6D436 /* ScheduleModelPicker.swift in Sources */,
+				5AA225C11F87CBB600F12185 /* MyAlarm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TwoMinuteWarning/TwoMinuteWarning.entitlements;
-				DEVELOPMENT_TEAM = 275674938X;
+				DEVELOPMENT_TEAM = 4W7FJ652MW;
 				INFOPLIST_FILE = TwoMinuteWarning/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.southhillscode.TwoMinuteWarning;
@@ -352,7 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TwoMinuteWarning/TwoMinuteWarning.entitlements;
-				DEVELOPMENT_TEAM = 275674938X;
+				DEVELOPMENT_TEAM = 4W7FJ652MW;
 				INFOPLIST_FILE = TwoMinuteWarning/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.southhillscode.TwoMinuteWarning;

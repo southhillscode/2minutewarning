@@ -11,21 +11,21 @@ import Foundation
 class ScheduleModel {
     
     var scheduleName: String
-    var period: String
-    var time: String
+    var currentSchedule:[Int:DateComponents]
     
-    init(scheduleName:String, period: String, time: String) {
+    
+    
+    init(scheduleName:String, schedule:[Int:DateComponents]) {
         self.scheduleName = scheduleName
-        self.period = period
-        self.time = time
+        currentSchedule = schedule
     }
+    
     
     func getScheduleName() -> String {
         return self.scheduleName
     }
     
-    func setTime(time: String){
-        self.time = time
+    
     }
 }
 

@@ -11,6 +11,7 @@ import Foundation
 class ScheduleModel {
     
     var scheduleName: String
+<<<<<<< HEAD
     var currentSchedule:[Int:String]
     
     
@@ -19,11 +20,27 @@ class ScheduleModel {
         currentSchedule = schedule
         self.scheduleName = scheduleName
         
+=======
+    var currentSchedule:[Int:DateComponents]
+    
+    
+    
+    init(scheduleName:String, schedule:[Int:DateComponents]) {
+        self.scheduleName = scheduleName
+        currentSchedule = schedule
+>>>>>>> PickerConnection
     }
+    
     
     func getScheduleName() -> String {
         return self.scheduleName
     }
     
+<<<<<<< HEAD
   
+=======
+    
+    }
+>>>>>>> PickerConnection
 }
+

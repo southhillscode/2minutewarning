@@ -7,9 +7,13 @@
 //
 
 import UIKit
+<<<<<<< HEAD
 
 //Pull rquest
 
+=======
+//Force master branch
+>>>>>>> PickerConnection
 class ScheduleLabel: UILabel {
     
     required init(coder aDecoder: NSCoder) {

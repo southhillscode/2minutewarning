@@ -23,11 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var vc : UIViewController
         
-        
-        
         //Show OnBoardVC storyboard
         vc = storyboard.instantiateViewController(withIdentifier: "OnBoardVC")
-        
         
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()

@@ -11,20 +11,19 @@ import Foundation
 class ScheduleModel {
     
     var scheduleName: String
-    var period: String
-    var time: String
+    var currentSchedule:[Int:String]
     
-    init(scheduleName:String, period: String, time: String) {
+    
+    
+    init(scheduleName:String, schedule:[Int:String]) {
+        currentSchedule = schedule
         self.scheduleName = scheduleName
-        self.period = period
-        self.time = time
+        
     }
     
     func getScheduleName() -> String {
         return self.scheduleName
     }
     
-    func setTime(time: String){
-        self.time = time
-    }
+  
 }

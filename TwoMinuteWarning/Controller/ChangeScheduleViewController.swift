@@ -23,10 +23,11 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     let formatter = DateFormatter()
     let setUpAlarm = MyAlarm()
     var rotationAngle: CGFloat!
+    var scheduleData = [ScheduleModel]()
     
     @IBAction func classNotificationSwitch(_ sender: UISwitch) {
         setClassNotification()
-       
+        
     }
     
     @IBAction func breakNotificationSwitch(_ sender: UISwitch) {
@@ -37,10 +38,19 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         setDressNotification()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        scheduleData = Data.getData()
+    }
+    
     override func viewDidLoad() {
+        
+        
+        
         super.viewDidLoad()
         setupUI()
-       
+        self.navigationItem.hidesBackButton = true
+        
         rotationAngle = -90 * (.pi/180)
         
         let y = schedulePicker.frame.origin.y
@@ -80,6 +90,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         //Create var to hold the the scheduele
         var regularSchedule : ScheduleModel!
         var rallySchedule: ScheduleModel!
+        var lateStartSchedule: ScheduleModel!
         
         //Loop through the data to extract the schedule
         for schedule in dateModelPicker.modelData {
@@ -94,7 +105,11 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
                 
                 rallySchedule = schedule
                 
-                default:
+            case "Late Start":
+                
+                lateStartSchedule = schedule
+                
+            default:
                 
                 print("\(schedule.scheduleName) not found")
                 
@@ -113,90 +128,98 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
             //Loop theough each dictionaries of schedule in the scheduleModel
             for (period,time) in regularSchedule.currentSchedule {
                 
-                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(regularSchedule.currentSchedule) is about to end in 2 minutes")
+                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)", content: "Period \(period) of \(regularSchedule.scheduleName) Schedule is about to end in 2 minutes")
                 
             }
             
-      
+            
             print("Regular Schedule Set")
-        
+            
         case "Rally":
-
+            
             //Loop theough each dictionaries of schedule in the scheduleModel
             for (period,time) in rallySchedule.currentSchedule {
                 
-                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(rallySchedule.currentSchedule) is about to end in 2 minutes")
+                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(rallySchedule.scheduleName) is about to end in 2 minutes")
                 
             }
             print("Rally Schedule Set")
         case "Late Start":
-            //Set Regular Schedule Notifications
-            print("Late Start Schedule Set")
-        case "Minimum":
-            //Set Regular Schedule Notifications
-            print("Minimum Schedule Set")
-        case "Extended Break":
-            //Set Regular Schedule Notifications
-            print("Extended Break Schedule Set")
-        case "Extended Lunch":
-            //Set Regular Schedule Notifications
-            print("Extended Lunch Schedule Set")
-        default:
-            print("this is the default setting")
+            //Loop theough each dictionaries of schedule in the scheduleModel
+            for (period,time) in lateStartSchedule.currentSchedule {
+                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(lateStartSchedule.scheduleName) is about to end in 2 minutes")
+            }
+                print("Late Start Schedule Set")
+                case "Minimum":
+                //Set Regular Schedule Notifications
+                print("Minimum Schedule Set")
+                case "Extended Break":
+                //Set Regular Schedule Notifications
+                print("Extended Break Schedule Set")
+                case "Extended Lunch":
+                //Set Regular Schedule Notifications
+                print("Extended Lunch Schedule Set")
+                default:
+                print("this is the default setting")
+            }
         }
-    }
-    
-    @IBAction func saveTapped(_ sender: UIBarButtonItem){
         
-        
-        
-        
-        let alert = UIAlertController(title: "Confirmation", message: "Do you want to set \(currentSchedule.text!) as your current schedule?", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+        @IBAction func saveTapped(_ sender: UIBarButtonItem){
             
-            //We want to clear everytime
-            self.setUpAlarm.clearNotification()
             
-            //Then set the new notification with the new settings
-            self.setNotification()
             
-            //Go back to the main screen
+            
+            let alert = UIAlertController(title: "Confirmation", message: "Do you want to set \(currentSchedule.text!) as your current schedule?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+                
+                //We want to clear everytime
+                self.setUpAlarm.clearNotification()
+                
+                //Then set the new notification with the new settings
+                self.setNotification()
+                
+                //Go back to the main screen
+                self.performSegue(withIdentifier: "goBack", sender: self)
+                
+                
+            }))
+            alert.addAction(UIAlertAction(title: "Never Mind!", style: .destructive, handler: { (action) in
+                
+                
+                print("Action Cancelled")
+            }))
+            
+            present(alert, animated: true, completion: nil)
+            
+        }
+        
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
+        
+        func selectionMade(schedule: String) {
+            currentSchedule.text = schedule
+        }
+        
+        
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            
+            let destinationVC = segue.destination as! OnBoardVC
+            
+            destinationVC.loadViewIfNeeded()
+            destinationVC.currentSchedule.text = currentSchedule.text!
+            
+            
+        }
+        @IBAction func back(_ sender: Any) {
             self.performSegue(withIdentifier: "goBack", sender: self)
             
             
-        }))
-        alert.addAction(UIAlertAction(title: "Never Mind!", style: .destructive, handler: { (action) in
-            
-            
-            print("Action Cancelled")
-        }))
-
-       present(alert, animated: true, completion: nil)
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func selectionMade(schedule: String) {
-        currentSchedule.text = schedule
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        }
         
         
-        let destinationVC = segue.destination as! OnBoardVC
-        
-        destinationVC.loadViewIfNeeded()
-        destinationVC.currentSchedule.text = currentSchedule.text!
-        
-        
-    }
-    
-    
 }
 

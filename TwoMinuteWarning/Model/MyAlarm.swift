@@ -9,18 +9,18 @@
 import UIKit
 import UserNotifications
 
-//Current date
-let date = Date()
-let calendar = Calendar.current
-let year = calendar.component(.year, from: date)
-let month = calendar.component(.month, from: date)
-let day = calendar.component(.day, from: date) + 1
+
 
 class MyAlarm: NSObject {
-
-    let regularSchedule: [Int:String] = [0:"7:40",1:"8:37",2:"9:34",3:"10:31",4:"11:38",5:"12:35",6:"14:07",7:"15:04"]
-    let rallySchedule: [Int:String] = [0:"7:40",1:"8:29",2:"9:18",3:"10:07",4:"12:02",5:"12:51",6:"14:15",7:"15:04"]
+    //Current date
+    let year = Calendar.current.component(.year, from: Date())
+    let month = Calendar.current.component(.month, from: Date())
+    let day = Calendar.current.component(.day, from: Date())
+    let regularSchedule: [Int:String] = [0:"7:45",1:"8:37",2:"9:34",3:"10:31",4:"11:38",5:"12:35",6:"12:36",7:"15:04"]
+    let lateStartSchedule: [Int:String] = [0:"9:45",1:"10:24",2:"11:03",3:"11:42",4:"12:21",5:"13:39",6:"14:18",7:"14:57"]
+    
     let userCalender = Calendar.current
+   // data.append(ScheduleModel(scheduleName: "Rally", period0: "7:45-8:37", period1: "8:42-9:34", period2: "9:39-10:31", period3: "10:31", breakPeriod: "10:31-10:41", period4: "10:46-11:38", period5: "11:43-12:35", lunch: "12:35-1:10", period6: "1:15-2:07", period7: "2:12-3:04", date: "My Date"))
 
     
     func createNotif(year: Int, month: Int, day: Int, hour: Int, minute: Int, identifier: String, content: String) {
@@ -42,8 +42,8 @@ class MyAlarm: NSObject {
         
         
         let request = UNNotificationRequest(identifier: myAlarmID, content: myAlarmContent, trigger: myAlarmTrigger)
-        let center = UNUserNotificationCenter.current()
-        center.add(request, withCompletionHandler: { (error) in
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
             if error != nil {
                 //TODO: Handle the error
             }
@@ -133,19 +133,11 @@ class MyAlarm: NSObject {
             
         case "Regular":
       
+            timeInt = getTimeUntilNextPeriod(scheduleDictionary: regularSchedule)
+        
+        case "Late Start":
             
-            //Create time component
-            let componentsArray = getDateComponentsInOrder(scheduleDictionary: regularSchedule)
-            
-            //Sort the array so the least time remaining will appear first
-            var newArray = componentsArray.sorted(by: {$0.date!.timeIntervalSinceNow < $1.date!.timeIntervalSinceNow})
-            
-            
-            
-            //The first one in the array will be next period
-            timeInt = newArray[0].date!.timeIntervalSinceNow
-            
-            
+            timeInt = getTimeUntilNextPeriod(scheduleDictionary: lateStartSchedule)
             
         default:
             print("\(schedule) is not a valid schedule")
@@ -168,6 +160,26 @@ class MyAlarm: NSObject {
         newDate.year = year
         
         return newDate
+    }
+    
+    private func getTimeUntilNextPeriod(scheduleDictionary: [Int:String]) -> TimeInterval {
+        
+        //Create time component
+        let componentsArray = getDateComponentsInOrder(scheduleDictionary: scheduleDictionary)
+        
+        //Sort the array so the least time remaining will appear first
+        var newArray = componentsArray.sorted(by: {$0.date!.timeIntervalSinceNow < $1.date!.timeIntervalSinceNow})
+        
+        
+        
+        if newArray.count == 0 {
+            
+            return 0;
+            
+        }
+        //The first one in the array will be next period
+        return newArray[0].date!.timeIntervalSinceNow
+        
     }
     
     

@@ -15,12 +15,12 @@ class Data {
     class func getData() -> [ScheduleModel] {
         
         let regularSchedule = alarmModel.turnDatesIntoDateComponet(scheduleDictionary: alarmModel.regularSchedule)
-        let rallySchedule = alarmModel.turnDatesIntoDateComponet(scheduleDictionary: alarmModel.rallySchedule)
+        let lateStartSchedule = alarmModel.turnDatesIntoDateComponet(scheduleDictionary: alarmModel.lateStartSchedule)
         
         //Array of type ScheduleModels
         var data = [ScheduleModel]()
         data.append(ScheduleModel(scheduleName: "Regular", schedule: regularSchedule))
-        data.append(ScheduleModel(scheduleName: "Rally", schedule: rallySchedule))
+        data.append(ScheduleModel(scheduleName: "Late Start", schedule: lateStartSchedule))
         
         
         /*data.append(ScheduleModel(scheduleName: "Regular", period0: "7:45-8:37", period1: "8:42-9:34", period2: "9:39-10:31", period3: "10:36-10:41", breakPeriod: "10:41-10:41", period4: "10:46-11:38", period5: "11:43-12:35", lunch: "12:35-1:10", period6: "1:15-2:07", period7: "2:12-3:04", date: "My Date"))

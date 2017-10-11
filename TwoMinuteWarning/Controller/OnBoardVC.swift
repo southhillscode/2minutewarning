@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import NotificationCenter
+import UserNotifications
 
 class OnBoardVC: UIViewController {
     
     var seconds: TimeInterval?
     @IBOutlet weak var currentSchedule: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     let alarmModel = MyAlarm()
     
     override func viewDidLoad() {
@@ -22,12 +25,15 @@ class OnBoardVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
-            //Get the seconds each time the view is about to appear
-            seconds = alarmModel.getTimeUntilNextPeriod(schedule: currentSchedule.text!)
-        
+        //Get the seconds each time the view is about to appear
+        seconds = alarmModel.getTimeUntilNextPeriod(schedule: currentSchedule.text!)
+//        UNUserNotificationCenter.current().getPendingNotificationRequests { (notification) in
+//            for noti in notification {
+//
+//            }
+//        }
     }
-   
+    
     @IBAction func continueTouched(_ sender: UIButton) {
         
         performSegue(withIdentifier: "toMain", sender: self)
@@ -40,12 +46,12 @@ class OnBoardVC: UIViewController {
         
     }
     
-    func updateTimer () {
+     func updateTimer () {
         
         if let actualSeconds = seconds {
             
             
-            currentSchedule.text = "\(actualSeconds) seconds remaining until next period"
+            timeLabel.text = "\(actualSeconds) seconds remaining until next period"
             
             seconds! -= 1
             

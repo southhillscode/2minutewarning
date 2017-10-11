@@ -7,7 +7,13 @@
 //
 
 import UIKit
+<<<<<<< HEAD
+
+//Pull rquest
+
+=======
 //Force master branch
+>>>>>>> PickerConnection
 class ScheduleLabel: UILabel {
     
     required init(coder aDecoder: NSCoder) {
@@ -35,7 +41,7 @@ class ScheduleLabel: UILabel {
         self.clipsToBounds = true
         self.textColor = UIColor.black
         self.text = "Class Notification"
-        self.frame = CGRect(x: 0, y: 0, width: 200, height: 21)
+        self.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
         self.setProperties(borderWidth:1.0, borderColor:UIColor.black)
     }
     

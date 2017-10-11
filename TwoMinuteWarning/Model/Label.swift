@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//Force master
+//Force master branch
 class ScheduleLabel: UILabel {
     
     required init(coder aDecoder: NSCoder) {

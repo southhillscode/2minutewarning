@@ -14,31 +14,6 @@ protocol SchedulePickerDelegate: class {
 
 class ScheduleModelPicker: UIPickerView
 {
-<<<<<<< HEAD
-    let customWidth: CGFloat = 100
-    let customHeight: CGFloat = 100
-    var rotationAngle: CGFloat!
-    var currentSchedule: String!
-
-
-
-
-    
-    func getPickerView(pickerViewLabel:String) -> UIView {
-        
-        
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: customWidth, height: customHeight))
-        
-        let topLabel = UILabel(frame: CGRect(x:0, y:0, width: customWidth, height: customHeight))
-        topLabel.text = pickerViewLabel
-        topLabel.textColor = .black
-        topLabel.textAlignment = .center
-        topLabel.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.bold )
-        view.addSubview(topLabel)
-        
-        return view
-        
-=======
     
     var modelData: [ScheduleModel]!
     var customWidth: CGFloat = 100
@@ -127,7 +102,6 @@ extension ScheduleModelPicker: UIPickerViewDelegate
         }
         
         //print("\(myLabelName!) notification is set from ScheduleModelPicker class")
->>>>>>> PickerConnection
     }
 }
 

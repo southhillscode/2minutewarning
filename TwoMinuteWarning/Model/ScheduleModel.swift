@@ -11,16 +11,6 @@ import Foundation
 class ScheduleModel {
     
     var scheduleName: String
-<<<<<<< HEAD
-    var currentSchedule:[Int:String]
-    
-    
-    
-    init(scheduleName:String, schedule:[Int:String]) {
-        currentSchedule = schedule
-        self.scheduleName = scheduleName
-        
-=======
     var currentSchedule:[Int:DateComponents]
     
     
@@ -28,7 +18,6 @@ class ScheduleModel {
     init(scheduleName:String, schedule:[Int:DateComponents]) {
         self.scheduleName = scheduleName
         currentSchedule = schedule
->>>>>>> PickerConnection
     }
     
     
@@ -36,11 +25,6 @@ class ScheduleModel {
         return self.scheduleName
     }
     
-<<<<<<< HEAD
-  
-=======
     
     }
->>>>>>> PickerConnection
 }
-

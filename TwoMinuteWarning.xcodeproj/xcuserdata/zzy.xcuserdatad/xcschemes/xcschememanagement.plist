@@ -10,16 +10,5 @@
 			<integer>0</integer>
 		</dict>
 	</dict>
-<<<<<<< HEAD
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>D43867E41F6808C00044FD57</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
-=======
->>>>>>> PickerConnection
 </dict>
 </plist>

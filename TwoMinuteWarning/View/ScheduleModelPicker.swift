@@ -58,7 +58,7 @@ extension ScheduleModelPicker: UIPickerViewDelegate
         middleLabel.text = modelData[row].scheduleName
         middleLabel.textColor = .black
         middleLabel.textAlignment = .center
-        middleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightThin)
+        middleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.thin)
         
         view.addSubview(middleLabel)
         view.transform = CGAffineTransform(rotationAngle: rotationAngle)

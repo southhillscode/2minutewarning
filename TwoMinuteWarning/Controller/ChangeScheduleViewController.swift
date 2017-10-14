@@ -184,7 +184,6 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
             present(alert, animated: true, completion: nil)
             
         }
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -195,5 +194,4 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         currentSchedule.text = schedule
         setNotification()
     }
-    
 }

@@ -26,5 +26,5 @@ class ScheduleModel {
     }
     
     
-    }
 }
+

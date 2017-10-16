@@ -9,51 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Display Screen-->
-        <scene sceneID="ZIP-K3-Tmz">
-            <objects>
-                <tableViewController id="fc4-1u-Qjb" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DeA-FM-OQU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" red="0.40716794810000001" green="0.83474336140000005" blue="0.43828619680000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bDg-Yu-WVa">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bDg-Yu-WVa" id="eko-BQ-zYB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="fc4-1u-Qjb" id="zE9-Wk-0N8"/>
-                            <outlet property="delegate" destination="fc4-1u-Qjb" id="Q35-JL-n3S"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Display Screen" id="ezJ-IB-yAF" userLabel="Display Screen">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GDT-9w-Kq1">
-                            <connections>
-                                <segue destination="dLN-dc-tDh" kind="presentation" identifier="toMainSegue" id="ys4-Ds-YDj"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Akv-dr-PXB">
-                            <connections>
-                                <segue destination="xZ6-sW-9OW" kind="presentation" id="lqt-eP-lYI"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LWA-kb-9CR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-36" y="36"/>
-        </scene>
-        <!--Change Schedule-->
+        <!--Choose a Schedule-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ChangeScheduleViewController" customModule="TwoMinuteWarning" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ChangeScheduleViewController" customModule="TwoMinuteWarning" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -158,7 +117,7 @@
                     <connections>
                         <outlet property="breakNotificationLabel" destination="y5f-LS-gxE" id="5yu-BW-Eb0"/>
                         <outlet property="classNotificationLabel" destination="Jrb-ir-fOJ" id="zxo-CC-V10"/>
-                        <outlet property="currentSchedule" destination="LkZ-He-2xL" id="nc9-U5-aoP"/>
+                        <outlet property="currentSchedule" destination="LkZ-He-2xL" id="qu4-2f-kIv"/>
                         <outlet property="dressNotificationLabel" destination="sZd-QI-omP" id="gtO-f9-pRv"/>
                         <outlet property="schedulePicker" destination="Xrh-8Z-isa" id="OQq-f4-wTN"/>
                         <segue destination="dLN-dc-tDh" kind="show" identifier="goBack" id="xLv-PI-Eco"/>
@@ -334,7 +293,6 @@
         <image name="logo" width="198" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lqt-eP-lYI"/>
-        <segue reference="ade-yP-hDP"/>
+        <segue reference="fMO-4q-1i7"/>
     </inferredMetricsTieBreakers>
 </document>

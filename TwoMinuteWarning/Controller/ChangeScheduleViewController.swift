@@ -27,7 +27,6 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     
     @IBAction func classNotificationSwitch(_ sender: UISwitch) {
         setClassNotification()
-        
     }
     
     @IBAction func breakNotificationSwitch(_ sender: UISwitch) {
@@ -38,14 +37,11 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         setDressNotification()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         scheduleData = Data.getData()
     }
     
     override func viewDidLoad() {
-        
-        
         
         super.viewDidLoad()
         setupUI()
@@ -77,8 +73,6 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         schedulePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
     }
     func setNotification(){
-        
-        
         
         //Get the current year, month, and day
         let date = Date()
@@ -113,22 +107,16 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
                 
                 print("\(schedule.scheduleName) not found")
                 
-                
-                
             }
             
-            
-            
         }
-        
         
         switch currentSchedule.text! {
         case "Regular":
             //Set Regular Schedule Notifications
             print("\(currentSchedule.text!) Schedule Set from switch statement")
         case "Rally":
-            
-            //Loop theough each dictionaries of schedule in the scheduleModel
+            //Loop through each dictionaries of schedule in the scheduleModel
             for (period,time) in rallySchedule.currentSchedule {
                 
                 setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(rallySchedule.scheduleName) is about to end in 2 minutes")
@@ -157,9 +145,6 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         
         @IBAction func saveTapped(_ sender: UIBarButtonItem){
             
-            
-            
-            
             let alert = UIAlertController(title: "Confirmation", message: "Do you want to set \(currentSchedule.text!) as your current schedule?", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
@@ -172,11 +157,8 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
                 
                 //Go back to the main screen
                 self.performSegue(withIdentifier: "goBack", sender: self)
-                
-                
             }))
             alert.addAction(UIAlertAction(title: "Never Mind!", style: .destructive, handler: { (action) in
-                
                 
                 print("Action Cancelled")
             }))

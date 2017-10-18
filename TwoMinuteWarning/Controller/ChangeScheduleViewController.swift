@@ -114,7 +114,12 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         switch currentSchedule.text! {
         case "Regular":
             //Set Regular Schedule Notifications
-            print("\(currentSchedule.text!) Schedule Set from switch statement")
+            for (period,time) in regularSchedule.currentSchedule {
+                
+                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(regularSchedule.scheduleName) is about to end in 2 minutes")
+                
+            }
+            print("Regular Schedule Set")
         case "Rally":
             //Loop through each dictionaries of schedule in the scheduleModel
             for (period,time) in rallySchedule.currentSchedule {
@@ -170,6 +175,13 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let onBoardVC = segue.destination as! OnBoardVC
+        onBoardVC.loadViewIfNeeded()
+        onBoardVC.currentSchedule.text = self.currentSchedule.text!
+        
     }
 
     func selectionMade(schedule: String) {

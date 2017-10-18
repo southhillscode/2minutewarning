@@ -39,14 +39,8 @@ class OnBoardVC: UIViewController {
         performSegue(withIdentifier: "toMain", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-        
-        
-    }
     
-     func updateTimer () {
+     @objc func updateTimer () {
         
         if let actualSeconds = seconds {
             

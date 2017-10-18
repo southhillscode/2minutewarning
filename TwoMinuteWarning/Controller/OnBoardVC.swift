@@ -12,7 +12,9 @@ import UserNotifications
 
 class OnBoardVC: UIViewController {
     
+    var minutes: Int?
     var seconds: TimeInterval?
+    
     @IBOutlet weak var currentSchedule: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     let alarmModel = MyAlarm()
@@ -21,12 +23,22 @@ class OnBoardVC: UIViewController {
         super.viewDidLoad()
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         //Get the seconds each time the view is about to appear
+        
+        
+        
+        
         seconds = alarmModel.getTimeUntilNextPeriod(schedule: currentSchedule.text!)
+        minutes = Int(seconds!)/60
+        
+        
 //        UNUserNotificationCenter.current().getPendingNotificationRequests { (notification) in
 //            for noti in notification {
 //
@@ -44,10 +56,17 @@ class OnBoardVC: UIViewController {
         
         if let actualSeconds = seconds {
             
+            let secs = Int(actualSeconds.truncatingRemainder(dividingBy: 60))
             
-            timeLabel.text = "\(actualSeconds) seconds remaining until next period"
+            timeLabel.text = "\(minutes!) minutes and \((secs)) seconds remaining until next period"
             
             seconds! -= 1
+            
+            if (secs <= 0){
+                
+                minutes = minutes! - 1
+                
+            }
             
         }
         

@@ -347,7 +347,7 @@
                                                 <color key="titleColor" red="1" green="0.079394028180000006" blue="0.0" alpha="0.71764964789999997" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="dLN-dc-tDh" kind="presentation" modalTransitionStyle="partialCurl" id="Xap-hu-KBe"/>
+                                                <segue destination="dLN-dc-tDh" kind="show" id="Xap-hu-KBe"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to peroperly use this app, please allow notficiation (You can also allow in setting)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMV-vN-geW">

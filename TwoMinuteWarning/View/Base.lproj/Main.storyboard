@@ -98,7 +98,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8j2-0b-4wC">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="MqR-GO-nXX">
+                                    <navigationItem title="Edit Schedule" id="MqR-GO-nXX">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="dVf-fn-Ies">
                                             <connections>
                                                 <action selector="backTapped:" destination="BYZ-38-t0r" id="KYE-Wj-LTc"/>

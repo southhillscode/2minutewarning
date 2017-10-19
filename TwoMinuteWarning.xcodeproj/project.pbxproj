@@ -158,7 +158,7 @@
 				TargetAttributes = {
 					D43867E41F6808C00044FD57 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 4W7FJ652MW;
+                        DevelopmentTeam = 4W7FJ652MW;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -354,12 +354,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TwoMinuteWarning/TwoMinuteWarning.entitlements;
-				DEVELOPMENT_TEAM = 4W7FJ652MW;
+                DEVELOPMENT_TEAM = 4W7FJ652MW;
 				INFOPLIST_FILE = TwoMinuteWarning/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.southhillscode.TwoMinuteWarning;
+                PRODUCT_BUNDLE_IDENTIFIER = com.southhillscode.TwoMinuteWarning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+                SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -369,12 +369,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TwoMinuteWarning/TwoMinuteWarning.entitlements;
-				DEVELOPMENT_TEAM = 4W7FJ652MW;
+                DEVELOPMENT_TEAM = 4W7FJ652MW;
 				INFOPLIST_FILE = TwoMinuteWarning/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.southhillscode.TwoMinuteWarning;
+                PRODUCT_BUNDLE_IDENTIFIER = com.southhillscode.TwoMinuteWarning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

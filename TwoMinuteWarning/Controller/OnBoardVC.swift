@@ -14,6 +14,7 @@ class OnBoardVC: UIViewController {
     
     var minutes: Int?
     var seconds: TimeInterval?
+    var timer: Timer?
     
     @IBOutlet weak var currentSchedule: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -22,7 +23,6 @@ class OnBoardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
         
         
@@ -30,16 +30,34 @@ class OnBoardVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //Get the seconds each time the view is about to appear
+        timer?.invalidate()
         seconds = alarmModel.getTimeUntilNextPeriod(schedule: currentSchedule.text!)
+
+        //If there happens to be an error
+        if seconds == 0 {
+            
+            timer?.invalidate()
+            
+            
+        //If there are no erros
+        } else {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         minutes = Int(seconds!)/60
         
+        }
         
+        
+        
+//The code below tests for the notification
 //        UNUserNotificationCenter.current().getPendingNotificationRequests { (notification) in
 //            for noti in notification {
 //
 //            }
 //        }
+        
+        
+        
     }
     
     @IBAction func continueTouched(_ sender: UIButton) {

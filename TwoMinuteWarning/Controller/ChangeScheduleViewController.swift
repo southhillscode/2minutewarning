@@ -160,8 +160,16 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
                 //Then set the new notification with the new settings
                 self.setNotification()
                 
+                
                 //Go back to the main screen
-                self.performSegue(withIdentifier: "goBack", sender: self)
+                self.dismiss(animated: true, completion: nil)
+                
+                let onBoardVC = self.presentingViewController as! OnBoardVC
+                onBoardVC.loadViewIfNeeded()
+                onBoardVC.currentSchedule.text = self.currentSchedule.text!
+                self.present(alert, animated: true, completion: nil)
+                
+                
             }))
             alert.addAction(UIAlertAction(title: "Never Mind!", style: .destructive, handler: { (action) in
                 
@@ -170,19 +178,21 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
             
             present(alert, animated: true, completion: nil)
             
+            
+           
         }
     
+    @IBAction func backTapped(_ sender: Any) {
+        
+        
+        dismiss(animated: false, completion: nil)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let onBoardVC = segue.destination as! OnBoardVC
-        onBoardVC.loadViewIfNeeded()
-        onBoardVC.currentSchedule.text = self.currentSchedule.text!
-        
-    }
+  
 
     func selectionMade(schedule: String) {
         currentSchedule.text = schedule

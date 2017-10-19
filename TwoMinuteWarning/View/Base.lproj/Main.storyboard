@@ -98,10 +98,10 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8j2-0b-4wC">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Edit Schedule" id="MqR-GO-nXX">
+                                    <navigationItem title="Title" id="MqR-GO-nXX">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="dVf-fn-Ies">
                                             <connections>
-                                                <action selector="back:" destination="BYZ-38-t0r" id="nn1-do-Gda"/>
+                                                <action selector="backTapped:" destination="BYZ-38-t0r" id="KYE-Wj-LTc"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="3iS-zy-jfj">
@@ -130,7 +130,6 @@
                         <outlet property="currentSchedule" destination="LkZ-He-2xL" id="qu4-2f-kIv"/>
                         <outlet property="dressNotificationLabel" destination="sZd-QI-omP" id="gtO-f9-pRv"/>
                         <outlet property="schedulePicker" destination="Xrh-8Z-isa" id="OQq-f4-wTN"/>
-                        <segue destination="dLN-dc-tDh" kind="show" identifier="goBack" id="xLv-PI-Eco"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -216,18 +215,12 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                                     <state key="normal" title="Set Schedule"/>
-                                                    <connections>
-                                                        <action selector="continueTouched:" destination="dLN-dc-tDh" eventType="touchUpInside" id="ISr-qd-fx0"/>
-                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pg-L0-Flt">
                                                     <rect key="frame" x="0.0" y="82" width="375" height="36"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                                     <state key="normal" title="View Schedule"/>
-                                                    <connections>
-                                                        <action selector="continueTouched:" destination="dLN-dc-tDh" eventType="touchUpInside" id="MM4-sP-mXk"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -267,7 +260,7 @@
                     <connections>
                         <outlet property="currentSchedule" destination="8pL-rs-OXo" id="bTA-75-GZE"/>
                         <outlet property="timeLabel" destination="0ik-ze-3U0" id="4VY-LH-uVN"/>
-                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toMain" id="fMO-4q-1i7"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toMain" modalTransitionStyle="flipHorizontal" id="fMO-4q-1i7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHd-HA-gQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -306,10 +299,10 @@
                                             <rect key="frame" x="107" y="536" width="161" height="81"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="50"/>
                                             <state key="normal" title="Continue">
-                                                <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="1" green="0.079394028180000006" blue="0.0" alpha="0.71764964789999997" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="c0O-ZV-dz2"/>
+                                                <segue destination="dLN-dc-tDh" kind="presentation" modalTransitionStyle="partialCurl" id="Xap-hu-KBe"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to peroperly use this app, please allow notficiation (You can also allow in setting)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMV-vN-geW">
@@ -357,7 +350,4 @@
         <image name="AudobonBG" width="1242" height="2208"/>
         <image name="logo" width="198" height="300"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="c0O-ZV-dz2"/>
-    </inferredMetricsTieBreakers>
 </document>

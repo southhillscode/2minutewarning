@@ -31,10 +31,6 @@ class OnBoardVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         //Get the seconds each time the view is about to appear
-        
-        
-        
-        
         seconds = alarmModel.getTimeUntilNextPeriod(schedule: currentSchedule.text!)
         minutes = Int(seconds!)/60
         
@@ -58,7 +54,7 @@ class OnBoardVC: UIViewController {
             
             let secs = Int(actualSeconds.truncatingRemainder(dividingBy: 60))
             
-            timeLabel.text = "\(minutes!) minutes and \((secs)) seconds remaining until next period"
+            timeLabel.text = "\(minutes!) minutes and \((secs)) seconds"
             
             seconds! -= 1
             

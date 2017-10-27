@@ -30,22 +30,7 @@ class OnBoardVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        timer?.invalidate()
-        seconds = alarmModel.getTimeUntilNextPeriod(schedule: currentSchedule.text!)
-
-        //If there happens to be an error
-        if seconds == 0 {
-            
-            timer?.invalidate()
-            
-            
-        //If there are no erros
-        } else {
-        
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        minutes = Int(seconds!)/60
-        
-        }
+        getTimer()
         
         
         
@@ -80,6 +65,13 @@ class OnBoardVC: UIViewController {
                 
                 minutes = minutes! - 1
                 
+                
+            }
+            
+            if (minutes == 0 && secs == 0){
+                
+                getTimer()
+                
             }
             
         }
@@ -87,5 +79,27 @@ class OnBoardVC: UIViewController {
         
     }
     
+    
+    func getTimer(){
+        
+        timer?.invalidate()
+        seconds = alarmModel.getTimeUntilNextPeriod(schedule: currentSchedule.text!)
+        
+        //If there happens to be an error
+        if seconds == 0 {
+            
+            timer?.invalidate()
+            
+            
+            //If there are no erros
+        } else {
+            
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            minutes = Int(seconds!)/60
+            
+        }
+        
+        
+    }
     
 }

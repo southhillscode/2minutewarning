@@ -8,21 +8,11 @@
 
 import Foundation
 
-class ScheduleModel {
+struct ScheduleModel {
     
     var scheduleName: String
-    var currentSchedule:[Int:DateComponents]
-    
-    
-    
-    init(scheduleName:String, schedule:[Int:DateComponents]) {
-        self.scheduleName = scheduleName
-        currentSchedule = schedule
-    }
-    
-    
-    func getScheduleName() -> String {
-        return self.scheduleName
+    func setScheduleName() {
+
     }
     
     

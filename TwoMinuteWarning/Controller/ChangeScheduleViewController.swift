@@ -24,6 +24,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     let setUpAlarm = MyAlarm()
     var rotationAngle: CGFloat!
     var scheduleData = [ScheduleModel]()
+    var chosenSchedule: String!
     
     @IBAction func classNotificationSwitch(_ sender: UISwitch) {
         setClassNotification()
@@ -72,7 +73,15 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         schedulePicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
         schedulePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
     }
-    func setNotification(){
+    
+    private var notificationSchedule = ScheduleModel()
+    
+    func setNotification(schedule: String){
+        
+        notificationSchedule.setScheduleOfNotifications(schedule)
+        
+    }
+    /*func setNotification(){
         
         //Get the current year, month, and day
         let date = Date()
@@ -81,7 +90,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
         
-        //Create var to hold the the scheduele
+        //Create var to hold the the schedule
         var regularSchedule : ScheduleModel!
         var rallySchedule: ScheduleModel!
         var lateStartSchedule: ScheduleModel!
@@ -141,7 +150,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
                 default:
                 print("this is the default setting")
             }
-        }
+        }*/
         
         @IBAction func saveTapped(_ sender: UIBarButtonItem){
             
@@ -173,7 +182,8 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     }
 
     func selectionMade(schedule: String) {
-        currentSchedule.text = schedule
-        setNotification()
+        chosenSchedule = schedule
+        currentSchedule.text = chosenSchedule
+        setNotification(schedule: chosenSchedule)
     }
 }

@@ -16,7 +16,7 @@ class MyAlarm: NSObject {
     let year = Calendar.current.component(.year, from: Date())
     let month = Calendar.current.component(.month, from: Date())
     let day = Calendar.current.component(.day, from: Date())
-    let regularSchedule: [Int:String] = [0:"7:45",1:"8:37",2:"9:34",3:"10:31",4:"11:38",5:"12:35",6:"12:36",7:"15:04"]
+    let regularSchedule: [Int:String] = [0:"7:45",1:"8:37",2:"9:34",3:"10:31",4:"11:38",5:"12:35",6:"14:07",7:"15:04"]
     let lateStartSchedule: [Int:String] = [0:"9:45",1:"10:24",2:"11:03",3:"11:42",4:"12:21",5:"13:39",6:"14:18",7:"14:57"]
     
     let userCalender = Calendar.current

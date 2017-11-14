@@ -73,7 +73,18 @@ extension ScheduleModelPicker: UIPickerViewDelegate
         
         if pickerDelegate != nil {
             
-            pickerDelegate?.selectionMade(schedule: myLabelName)
+            if myLabelName == "Ext. Lunch"{
+            pickerDelegate?.selectionMade(schedule: "Extended Lunch")
+            } else if myLabelName == "Ext. Break"{
+                
+                pickerDelegate?.selectionMade(schedule: "Extended Break")
+                
+            } else {
+                
+              pickerDelegate?.selectionMade(schedule: myLabelName)
+            }
+            
+            
             
             
         }

@@ -25,8 +25,8 @@ class Data {
         var data = [ScheduleModel]()
         data.append(ScheduleModel(scheduleName: "Regular", schedule: regularSchedule))
         data.append(ScheduleModel(scheduleName: "Late Start", schedule: lateStartSchedule))
-        data.append(ScheduleModel(scheduleName: "Extended Lunch", schedule: extendedLunchSchedule))
-        data.append(ScheduleModel(scheduleName: "Extended Break", schedule: extendedBreakSchedule))
+        data.append(ScheduleModel(scheduleName: "Ext. Lunch", schedule: extendedLunchSchedule))
+        data.append(ScheduleModel(scheduleName: "Ext. Break", schedule: extendedBreakSchedule))
         data.append(ScheduleModel(scheduleName: "Rally", schedule: rallySchedule))
         data.append(ScheduleModel(scheduleName: "Minimum", schedule: mimimumSchedule))
         

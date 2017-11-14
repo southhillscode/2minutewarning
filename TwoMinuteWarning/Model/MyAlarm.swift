@@ -143,6 +143,22 @@ class MyAlarm: NSObject {
             
             timeInt = getTimeUntilNextPeriod(scheduleDictionary: lateStartSchedule)
             
+        case "Ext. Lunch":
+            
+            timeInt = getTimeUntilNextPeriod(scheduleDictionary: extendedLunchSchedule)
+            
+        case "Ext. Break":
+            
+            timeInt = getTimeUntilNextPeriod(scheduleDictionary: extendedBreakSchedule)
+            
+        case "Rally":
+            
+            timeInt = getTimeUntilNextPeriod(scheduleDictionary: rallySchedule)
+            
+        case "Minimum Day":
+            
+            timeInt = getTimeUntilNextPeriod(scheduleDictionary: minimumSchedule)
+            
         default:
             print("\(schedule) is not a valid schedule")
             

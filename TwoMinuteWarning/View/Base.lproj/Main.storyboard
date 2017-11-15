@@ -217,7 +217,9 @@
                                                     <rect key="frame" x="0.0" y="41" width="375" height="36"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                                    <state key="normal" title="Add Custom Schedule"/>
+                                                    <state key="normal" title="Add Custom Schedule">
+                                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <segue destination="P9W-ZD-4s8" kind="presentation" modalTransitionStyle="flipHorizontal" id="g76-jg-cnD"/>
                                                     </connections>
@@ -344,7 +346,7 @@
                                             <rect key="frame" x="107" y="536" width="161" height="81"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="50"/>
                                             <state key="normal" title="Continue">
-                                                <color key="titleColor" red="1" green="0.079394028180000006" blue="0.0" alpha="0.71764964789999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <segue destination="dLN-dc-tDh" kind="show" id="Xap-hu-KBe"/>
@@ -353,7 +355,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to properly use this app, please allow notifications! (You can also turn on notifications in settings.)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMV-vN-geW">
                                             <rect key="frame" x="20" y="80" width="335" height="70"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

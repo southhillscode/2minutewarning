@@ -6,6 +6,7 @@
 //  Copyright © 2017 Rob Fitzgerald, Inc. All rights reserved.
 //
 
+//lol github test
 import UIKit
 import NotificationCenter
 import UserNotifications
@@ -60,7 +61,11 @@ class OnBoardVC: UIViewController {
             timeLabel.text = "\(minutes!) minutes and \((secs)) seconds"
             
             seconds! -= 1
-            
+            if (minutes == 0 && secs == 0){
+                
+                getTimer()
+                
+            }
             if (secs <= 0){
                 
                 minutes = minutes! - 1
@@ -68,11 +73,7 @@ class OnBoardVC: UIViewController {
                 
             }
             
-            if (minutes == 0 && secs == 0){
-                
-                getTimer()
-                
-            }
+        
             
         }
         

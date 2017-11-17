@@ -143,11 +143,11 @@ class MyAlarm: NSObject {
             
             timeInt = getTimeUntilNextPeriod(scheduleDictionary: lateStartSchedule)
             
-        case "Ext. Lunch":
+        case "Extended Lunch":
             
             timeInt = getTimeUntilNextPeriod(scheduleDictionary: extendedLunchSchedule)
             
-        case "Ext. Break":
+        case "Extended Break":
             
             timeInt = getTimeUntilNextPeriod(scheduleDictionary: extendedBreakSchedule)
             

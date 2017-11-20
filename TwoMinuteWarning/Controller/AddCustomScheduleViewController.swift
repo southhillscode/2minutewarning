@@ -20,12 +20,9 @@ class AddCustomScheduleViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    @IBAction func dismiss(_ sender: Any) {
-        
+    @IBAction func dismiss(_: Any) {
+
         dismiss(animated: true, completion: nil)
-        
     }
-    
 }

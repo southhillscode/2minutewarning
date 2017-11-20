@@ -9,22 +9,16 @@
 import Foundation
 
 class ScheduleModel {
-    
+
     var scheduleName: String
-    var currentSchedule:[Int:DateComponents]
-    
-    
-    
-    init(scheduleName:String, schedule:[Int:DateComponents]) {
+    var currentSchedule: [Int: DateComponents]
+
+    init(scheduleName: String, schedule: [Int: DateComponents]) {
         self.scheduleName = scheduleName
         currentSchedule = schedule
     }
-    
-    
-    func getScheduleName() -> String {
-        return self.scheduleName
-    }
-    
-    
-}
 
+    func getScheduleName() -> String {
+        return scheduleName
+    }
+}

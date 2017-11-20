@@ -9,27 +9,23 @@
 import UIKit
 
 extension ChangeScheduleViewController {
-    
-    
+
     func setupUI() {
         print("setting up UI")
     }
-    
-    func setClassNotification(){
-        
+
+    func setClassNotification() {
+
         print("class notification switched")
-        
     }
-    
+
     func setBreakNotification() {
-    
+
         print("break notification switched")
-        
     }
-    
-    func setDressNotification(){
-        
+
+    func setDressNotification() {
+
         print("dress notification switched")
-        
     }
 }

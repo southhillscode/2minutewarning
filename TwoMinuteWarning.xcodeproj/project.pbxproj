@@ -10,7 +10,6 @@
 		15576DF01F759ADF00F6D436 /* ScheduleModelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15576DEF1F759ADF00F6D436 /* ScheduleModelPicker.swift */; };
 		156B22711F758763004C5959 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B22701F758763004C5959 /* Data.swift */; };
 		5AA225C11F87CBB600F12185 /* MyAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA225C01F87CBB600F12185 /* MyAlarm.swift */; };
-		5AEC0DEC1F98A5D1000D7EDE /* AddCustomScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC0DEB1F98A5D1000D7EDE /* AddCustomScheduleViewController.swift */; };
 		D43867E91F6808C00044FD57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43867E81F6808C00044FD57 /* AppDelegate.swift */; };
 		D43867EB1F6808C00044FD57 /* ChangeScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43867EA1F6808C00044FD57 /* ChangeScheduleViewController.swift */; };
 		D43867EE1F6808C00044FD57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43867EC1F6808C00044FD57 /* Main.storyboard */; };
@@ -28,7 +27,6 @@
 		15576DEF1F759ADF00F6D436 /* ScheduleModelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModelPicker.swift; sourceTree = "<group>"; };
 		156B22701F758763004C5959 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		5AA225C01F87CBB600F12185 /* MyAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyAlarm.swift; path = TwoMinuteWarning/Model/MyAlarm.swift; sourceTree = SOURCE_ROOT; };
-		5AEC0DEB1F98A5D1000D7EDE /* AddCustomScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomScheduleViewController.swift; sourceTree = "<group>"; };
 		D43867E51F6808C00044FD57 /* TwoMinuteWarning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoMinuteWarning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D43867E81F6808C00044FD57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D43867EA1F6808C00044FD57 /* ChangeScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeScheduleViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 		156B226F1F756CEE004C5959 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5AEC0DEB1F98A5D1000D7EDE /* AddCustomScheduleViewController.swift */,
 				D43867EA1F6808C00044FD57 /* ChangeScheduleViewController.swift */,
 				D4E2EBED1F7A7F4E00CE19DA /* OnBoardVC.swift */,
 				D43867E81F6808C00044FD57 /* AppDelegate.swift */,
@@ -213,7 +210,6 @@
 				D4B06EF91F77CE0100B27942 /* CSExtention.swift in Sources */,
 				D43867EB1F6808C00044FD57 /* ChangeScheduleViewController.swift in Sources */,
 				156B22711F758763004C5959 /* Data.swift in Sources */,
-				5AEC0DEC1F98A5D1000D7EDE /* AddCustomScheduleViewController.swift in Sources */,
 				D4E2EBEE1F7A7F4E00CE19DA /* OnBoardVC.swift in Sources */,
 				D43867F11F6808C00044FD57 /* TwoMinuteWarning.xcdatamodeld in Sources */,
 				D45949001F6BF374004B0F9B /* ScheduleModel.swift in Sources */,
@@ -274,9 +270,12 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 275674938X;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -331,9 +330,12 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 275674938X;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -356,30 +358,45 @@
 		D43867FB1F6808C00044FD57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TwoMinuteWarning/TwoMinuteWarning.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 275674938X;
 				INFOPLIST_FILE = TwoMinuteWarning/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.southhillscode.TwoMinuteWarning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		D43867FC1F6808C00044FD57 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TwoMinuteWarning/TwoMinuteWarning.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 275674938X;
 				INFOPLIST_FILE = TwoMinuteWarning/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.southhillscode.TwoMinuteWarning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -7,41 +7,39 @@
 //
 
 import UIKit
-//Force master branch
+// Force master branch
 class ScheduleLabel: UILabel {
-    
+
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        self.commonInit()
-        
+        commonInit()
     }
-    
-    override var text: String?{
-        get{
+
+    override var text: String? {
+        get {
             return super.text
         }
-        set(newText){
+        set(newText) {
             super.text = newText?.uppercased()
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.commonInit()
+        commonInit()
     }
-    
-    func commonInit(){
-        self.layer.cornerRadius = self.bounds.width/2
-        self.clipsToBounds = true
-        self.textColor = UIColor.black
-        self.text = "Class Notification"
-        self.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
-        self.setProperties(borderWidth:1.0, borderColor:UIColor.black)
+
+    func commonInit() {
+        layer.cornerRadius = bounds.width / 2
+        clipsToBounds = true
+        textColor = UIColor.black
+        text = "Class Notification"
+        frame = CGRect(x: 0, y: 0, width: 200, height: 20)
+        setProperties(borderWidth: 1.0, borderColor: UIColor.black)
     }
-    
+
     func setProperties(borderWidth: Float, borderColor: UIColor) {
-        self.layer.borderWidth = CGFloat(borderWidth)
-        self.layer.borderColor = borderColor.cgColor
+        layer.borderWidth = CGFloat(borderWidth)
+        layer.borderColor = borderColor.cgColor
     }
-    
 }

@@ -32,7 +32,7 @@ class MyAlarm: NSObject {
         dateComponent.month = month
         dateComponent.day = day
         dateComponent.hour = hour
-        dateComponent.minute = minute
+        dateComponent.minute = minute - 3
 
         // Set up triger, content, id
         let myAlarmTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)

@@ -14,6 +14,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var onBoardVC: OnBoardVC?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -52,6 +53,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        if let actualOnBoardVC = onBoardVC{
+            
+            actualOnBoardVC.getTimer()
+            
+        } else {
+            
+            print("Something went wrong with referenceing onBoardVC")
+            
+        }
     }
 
     func applicationDidBecomeActive(_: UIApplication) {

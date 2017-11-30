@@ -23,11 +23,16 @@ class OnBoardVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.onBoardVC = self
+        
     }
 
     override func viewWillAppear(_: Bool) {
 
         getTimer()
+    
 
         // The code below tests for the notification
         //        UNUserNotificationCenter.current().getPendingNotificationRequests { (notification) in

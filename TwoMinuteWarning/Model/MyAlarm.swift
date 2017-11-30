@@ -111,6 +111,8 @@ class MyAlarm: NSObject {
         let myAlarmID = identifier
         let myAlarmContent = UNMutableNotificationContent()
         myAlarmContent.body = content
+        myAlarmContent.sound = UNNotificationSound.default()
+        
 
         let request = UNNotificationRequest(identifier: myAlarmID, content: myAlarmContent, trigger: myAlarmTrigger)
 

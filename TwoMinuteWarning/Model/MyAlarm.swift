@@ -24,6 +24,78 @@ class MyAlarm: NSObject {
     let userCalender = Calendar.current
     // data.append(ScheduleModel(scheduleName: "Rally", period0: "7:45-8:37", period1: "8:42-9:34", period2: "9:39-10:31", period3: "10:31", breakPeriod: "10:31-10:41", period4: "10:46-11:38", period5: "11:43-12:35", lunch: "12:35-1:10", period6: "1:15-2:07", period7: "2:12-3:04", date: "My Date"))
 
+    
+    func setNotification(for scheduleNamed:String) {
+        
+        // Get the current year, month, and day
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        
+        // Create var to hold the the scheduele
+        var regularSchedule: ScheduleModel!
+        var rallySchedule: ScheduleModel!
+        var lateStartSchedule: ScheduleModel!
+        
+        // Loop through the data to extract the schedule
+        for schedule in Data.getData() {
+            
+            switch schedule.scheduleName {
+                
+            case "Regular":
+                
+                regularSchedule = schedule
+                
+            case "Rally":
+                
+                rallySchedule = schedule
+                
+            case "Late Start":
+                
+                lateStartSchedule = schedule
+                
+            default:
+                
+                print("\(schedule.scheduleName) not found")
+            }
+        }
+        
+        switch scheduleNamed {
+        case "Regular":
+            // Set Regular Schedule Notifications
+            for (period, time) in regularSchedule.currentSchedule {
+                
+                createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(regularSchedule.scheduleName) is about to end in 2 minutes")
+            }
+            print("Regular Schedule Set")
+        case "Rally":
+            // Loop through each dictionaries of schedule in the scheduleModel
+            for (period, time) in rallySchedule.currentSchedule {
+                
+                createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(rallySchedule.scheduleName) is about to end in 2 minutes")
+            }
+            print("Rally Schedule Set")
+        case "Late Start":
+            // Loop theough each dictionaries of schedule in the scheduleModel
+            for (period, time) in lateStartSchedule.currentSchedule {
+                createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(lateStartSchedule.scheduleName) is about to end in 2 minutes")
+            }
+            print("Late Start Schedule Set")
+        case "Minimum":
+            // Set Regular Schedule Notifications
+            print("Minimum Schedule Set")
+        case "Extended Break":
+            // Set Regular Schedule Notifications
+            print("Extended Break Schedule Set")
+        case "Extended Lunch":
+            // Set Regular Schedule Notifications
+            print("Extended Lunch Schedule Set")
+        default:
+            print("this is the default setting")
+        }
+    }
     func createNotif(year: Int, month: Int, day: Int, hour: Int, minute: Int, identifier: String, content: String) {
 
         // Set up dates

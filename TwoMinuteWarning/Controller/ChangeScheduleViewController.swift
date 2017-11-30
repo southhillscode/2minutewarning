@@ -55,7 +55,6 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         // dateModelPicker becomes a UIPicker reference of type ScheduleModelPicker.
         dateModelPicker = ScheduleModelPicker()
 
-        // dateModelPicker fills its instance array with data that it gets from the Model's Date class.
         dateModelPicker.modelData = Data.getData()
 
         // schedulePicker (*view*) uses delegate and datasource to fill info and notify when this data has changed.
@@ -75,77 +74,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         schedulePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
     }
 
-    func setNotification() {
 
-        // Get the current year, month, and day
-        let date = Date()
-        let calendar = Calendar.current
-        let year = calendar.component(.year, from: date)
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-
-        // Create var to hold the the scheduele
-        var regularSchedule: ScheduleModel!
-        var rallySchedule: ScheduleModel!
-        var lateStartSchedule: ScheduleModel!
-
-        // Loop through the data to extract the schedule
-        for schedule in dateModelPicker.modelData {
-
-            switch schedule.scheduleName {
-
-            case "Regular":
-
-                regularSchedule = schedule
-
-            case "Rally":
-
-                rallySchedule = schedule
-
-            case "Late Start":
-
-                lateStartSchedule = schedule
-
-            default:
-
-                print("\(schedule.scheduleName) not found")
-            }
-        }
-
-        switch currentSchedule.text! {
-        case "Regular":
-            // Set Regular Schedule Notifications
-            for (period, time) in regularSchedule.currentSchedule {
-
-                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(regularSchedule.scheduleName) is about to end in 2 minutes")
-            }
-            print("Regular Schedule Set")
-        case "Rally":
-            // Loop through each dictionaries of schedule in the scheduleModel
-            for (period, time) in rallySchedule.currentSchedule {
-
-                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(rallySchedule.scheduleName) is about to end in 2 minutes")
-            }
-            print("Rally Schedule Set")
-        case "Late Start":
-            // Loop theough each dictionaries of schedule in the scheduleModel
-            for (period, time) in lateStartSchedule.currentSchedule {
-                setUpAlarm.createNotif(year: year, month: month, day: day, hour: time.hour!, minute: time.minute!, identifier: "\(period)\(time)", content: "Period \(period) of \(lateStartSchedule.scheduleName) is about to end in 2 minutes")
-            }
-            print("Late Start Schedule Set")
-        case "Minimum":
-            // Set Regular Schedule Notifications
-            print("Minimum Schedule Set")
-        case "Extended Break":
-            // Set Regular Schedule Notifications
-            print("Extended Break Schedule Set")
-        case "Extended Lunch":
-            // Set Regular Schedule Notifications
-            print("Extended Lunch Schedule Set")
-        default:
-            print("this is the default setting")
-        }
-    }
 
     @IBAction func saveTapped(_: UIBarButtonItem) {
 
@@ -157,7 +86,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
             self.setUpAlarm.clearNotification()
 
             // Then set the new notification with the new settings
-            self.setNotification()
+            self.setUpAlarm.setNotification(for: self.currentSchedule.text!)
 
             // Go back to the main screen
             self.dismiss(animated: true, completion: nil)
@@ -188,6 +117,5 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
 
     func selectionMade(schedule: String) {
         currentSchedule.text = schedule
-        setNotification()
     }
 }

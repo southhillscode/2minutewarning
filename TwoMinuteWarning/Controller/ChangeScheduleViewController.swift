@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import UserNotifications
 
 class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
@@ -26,7 +27,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     let setUpAlarm = MyAlarm()
     var rotationAngle: CGFloat!
     var scheduleData = [ScheduleModel]()
-
+    let context =  (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     @IBAction func classNotificationSwitch(_: UISwitch) {
         setClassNotification()
     }
@@ -41,6 +42,19 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
 
     override func viewWillAppear(_: Bool) {
         scheduleData = Data.getData()
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ScheduleSettings")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                print(data.value(forKey: "currentSchedule") as! String)
+            }
+            
+        } catch {
+            
+            print("Failed")
+        }
     }
 
     override func viewDidLoad() {
@@ -103,6 +117,17 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
         }))
 
         present(alert, animated: true, completion: nil)
+     
+        let entity = NSEntityDescription.entity(forEntityName: "ScheduleSettings", in: context)
+        let settings = NSManagedObject(entity: entity!, insertInto: context)
+        
+        settings.setValue(currentSchedule.text!, forKey: "currentSchedule")
+        do {
+            try context.save()
+            print()
+        } catch {
+            print("Failed saving")
+        }
     }
 
     @IBAction func backTapped(_: Any) {

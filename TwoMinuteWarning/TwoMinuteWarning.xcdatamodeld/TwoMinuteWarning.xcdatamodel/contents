@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B25c" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Schedule" representedClassName="Schedule" syncable="YES" codeGenerationType="class">
         <attribute name="scheduleName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="scheduleTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScheduleUser" inverseName="schedule" inverseEntity="ScheduleUser" syncable="YES"/>
+    </entity>
+    <entity name="ScheduleSettings" representedClassName="ScheduleSettings" syncable="YES" codeGenerationType="class">
+        <attribute name="currentSchedule" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ScheduleUser" representedClassName="ScheduleUser" syncable="YES" codeGenerationType="class">
         <attribute name="iD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -13,5 +16,6 @@
     <elements>
         <element name="Schedule" positionX="2448" positionY="-1134" width="128" height="88"/>
         <element name="ScheduleUser" positionX="2718" positionY="-1144" width="128" height="88"/>
+        <element name="ScheduleSettings" positionX="2583" positionY="-1107" width="128" height="60"/>
     </elements>
 </model>

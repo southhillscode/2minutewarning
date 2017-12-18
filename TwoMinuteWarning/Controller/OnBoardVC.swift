@@ -10,6 +10,7 @@
 import UIKit
 import NotificationCenter
 import UserNotifications
+import CoreData
 
 class OnBoardVC: UIViewController {
 
@@ -30,7 +31,23 @@ class OnBoardVC: UIViewController {
     }
 
     override func viewWillAppear(_: Bool) {
-
+        
+        let context =  (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ScheduleSettings")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                print(data.value(forKey: "currentSchedule") as! String)
+                let savedSchedule = data.value(forKey: "currentSchedule")as! String
+                currentSchedule.text = savedSchedule
+            }
+            
+        } catch {
+            
+            print("Failed")
+        }
+        
         getTimer()
     
 

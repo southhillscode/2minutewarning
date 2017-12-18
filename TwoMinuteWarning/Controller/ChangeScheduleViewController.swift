@@ -43,18 +43,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
     override func viewWillAppear(_: Bool) {
         scheduleData = Data.getData()
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ScheduleSettings")
-        request.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "currentSchedule") as! String)
-            }
-            
-        } catch {
-            
-            print("Failed")
-        }
+        
     }
 
     override func viewDidLoad() {
@@ -108,7 +97,21 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
             let onBoardVC = self.presentingViewController as! OnBoardVC
             onBoardVC.loadViewIfNeeded()
             onBoardVC.currentSchedule.text = self.currentSchedule.text!
+            
+            let entity = NSEntityDescription.entity(forEntityName: "ScheduleSettings", in: self.context)
+            let settings = NSManagedObject(entity: entity!, insertInto: self.context)
+            
+            settings.setValue(self.currentSchedule.text!, forKey: "currentSchedule")
+            do {
+                try self.context.save()
+                print()
+            } catch {
+                print("Failed saving")
+            }
+            
             self.present(self.alert, animated: true, completion: nil)
+            
+            
 
         }))
         alert.addAction(UIAlertAction(title: "Never Mind!", style: .destructive, handler: { _ in
@@ -118,16 +121,7 @@ class ChangeScheduleViewController: UIViewController, SchedulePickerDelegate {
 
         present(alert, animated: true, completion: nil)
      
-        let entity = NSEntityDescription.entity(forEntityName: "ScheduleSettings", in: context)
-        let settings = NSManagedObject(entity: entity!, insertInto: context)
-        
-        settings.setValue(currentSchedule.text!, forKey: "currentSchedule")
-        do {
-            try context.save()
-            print()
-        } catch {
-            print("Failed saving")
-        }
+       
     }
 
     @IBAction func backTapped(_: Any) {

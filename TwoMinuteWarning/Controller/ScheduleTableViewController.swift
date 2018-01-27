@@ -10,7 +10,7 @@ import UIKit
 
 class ScheduleTableViewController: UITableViewController {
 
-    private var currentIndexPath = IndexPath(row: 1, section: 1)
+    private var currentIndexPath = IndexPath(row: 0, section: 0)
     var schedule: ScheduleModel!
     @IBOutlet weak var datePicker: UIDatePicker!
     

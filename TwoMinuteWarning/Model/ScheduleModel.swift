@@ -17,8 +17,8 @@ class ScheduleModel {
         self.scheduleName = scheduleName
         currentSchedule = schedule
     }
+    
+    
 
-    func getScheduleName() -> String {
-        return scheduleName
-    }
+
 }

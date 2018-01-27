@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class MyAlarm: NSObject {
+class MyAlarm {
     // Current date
     let year = Calendar.current.component(.year, from: Date())
     let month = Calendar.current.component(.month, from: Date())
@@ -225,10 +225,10 @@ class MyAlarm: NSObject {
     }
 
     private func getTimeUntilNextPeriod(scheduleDictionary: [Int: String]) -> TimeInterval {
-
+        
         // Create time component
         let componentsArray = getDateComponentsInOrder(scheduleDictionary: scheduleDictionary)
-
+        
         // Sort the array so the least time remaining will appear first
         var newArray = componentsArray.sorted(by: { $0.date!.timeIntervalSinceNow < $1.date!.timeIntervalSinceNow })
 
@@ -239,6 +239,25 @@ class MyAlarm: NSObject {
         // The first one in the array will be next period
         return newArray[0].date!.timeIntervalSinceNow
     }
+
+
+    func getScheduleFrom(name: String) -> ScheduleModel?{
+        
+        
+        // Loop through the data to extract the schedule
+        for schedule in Data.getData() {
+            
+            if schedule.scheduleName == name{
+            return schedule
+                
+            }
+    }
+        
+        
+        return nil;
+    }
+
+
 }
 
 // Returns the difference between two date
@@ -248,3 +267,4 @@ extension DateComponents {
         return abs(Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0)
     }
 }
+

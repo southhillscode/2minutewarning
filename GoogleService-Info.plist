@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>706247429200-n7d3dov9vrm63g58a89lvrj2d186pmsl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.706247429200-n7d3dov9vrm63g58a89lvrj2d186pmsl</string>
+	<key>API_KEY</key>
+	<string>AIzaSyABCJsDkDN-4VN3ON39tC_Qq1HctnPfqg8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>706247429200</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.southhillscode.TwoMinuteWarning</string>
+	<key>PROJECT_ID</key>
+	<string>twominutewarning-79e3d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>twominutewarning-79e3d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:706247429200:ios:ff963d5a872d100f</string>
+	<key>DATABASE_URL</key>
+	<string>https://twominutewarning-79e3d.firebaseio.com</string>
+</dict>
+</plist>

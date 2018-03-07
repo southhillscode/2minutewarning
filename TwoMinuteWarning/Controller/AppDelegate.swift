@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("permission for notifications denied.")
             }
         })
-
+        
+        FirebaseApp.configure()
         return true
     }
 
